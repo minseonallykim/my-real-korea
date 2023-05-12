@@ -9,7 +9,8 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 @Configuration
 public class EmailConfig {
 	
-	@Bean(name="mailSender")
+	@Bean
+	//(name="mailSender")
 	public JavaMailSender getJavaMailSender() {
 		Properties properties = new Properties(); 
 		properties.put("mail.smtp.auth", true);

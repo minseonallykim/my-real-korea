@@ -63,7 +63,7 @@ public class EmailService {
     	createAuthCode(); // 인증 코드 생성
 
         //메일 전송에 필요한 정보 설정 (인증번호 입력하는 방식)
-        String setFrom = "myrealkorea.auth@gmail.com";
+        String setFrom = "minsun947@gmail.com";
         String title = "My Real Korea 회원가입 인증";
 
         MimeMessage emailForm = emailSender.createMimeMessage();
@@ -80,7 +80,7 @@ public class EmailService {
     public String sendTempPassword(String toEmail) throws MessagingException, UnsupportedEncodingException {
         createTempPassword(); //임시 비밀번호 생성
 
-        String setFrom = "myrealkorea.auth@gmail.com";
+        String setFrom = "minsun947@gmail.com";
         String title = "My Real Korea 임시 비밀번호 발송";
 
         MimeMessage emailForm = emailSender.createMimeMessage();
