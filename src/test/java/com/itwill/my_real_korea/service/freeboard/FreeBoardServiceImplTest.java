@@ -1,6 +1,6 @@
 package com.itwill.my_real_korea.service.freeboard;
 
-import com.itwill.FinalProjectTeam2MyRealKoreaApplication;
+import com.itwill.MyRealKoreaApplication;
 import com.itwill.my_real_korea.dto.City;
 import com.itwill.my_real_korea.dto.freeboard.FreeBoard;
 import com.itwill.my_real_korea.util.PageMakerDto;
@@ -15,7 +15,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest(classes = FinalProjectTeam2MyRealKoreaApplication.class)
+@SpringBootTest(classes = MyRealKoreaApplication.class)
 @ComponentScan(basePackages = {"com.itwill.my_real_korea"})
 class FreeBoardServiceImplTest {
 
