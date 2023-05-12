@@ -12,7 +12,7 @@ import org.springframework.context.annotation.ComponentScan;
 import com.itwill.my_real_korea.dto.tour.TourReview;
 import com.itwill.my_real_korea.dto.user.User;
 import com.itwill.my_real_korea.util.PageMakerDto;
-@SpringBootTest
+//@SpringBootTest
 @ComponentScan(basePackages = {"com.itwill.my_real_korea"})
 class TourReviewServiceImplTest {
 	@Autowired

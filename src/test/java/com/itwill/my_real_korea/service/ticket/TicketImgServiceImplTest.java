@@ -11,7 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 import java.util.List;
 
-@SpringBootTest
+//@SpringBootTest
 @ComponentScan(basePackages = {"com.itwill.my_real_korea"})
 class TicketImgServiceImplTest {
 

@@ -29,7 +29,7 @@ import com.itwill.my_real_korea.dto.tour.TourImg;
 import com.itwill.my_real_korea.dto.wishlist.Wishlist;
 import com.itwill.my_real_korea.service.wishlist.WishlistService;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
+//@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
 @AutoConfigureMockMvc
 class WishlistControllerTest {
 

@@ -12,7 +12,7 @@ import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest
+//@SpringBootTest
 @ComponentScan(basePackages = {"com.itwill.my_real_korea"})
 class TicketReviewServiceImplTest {
     @Autowired

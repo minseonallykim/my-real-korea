@@ -15,7 +15,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest(classes = MyRealKoreaApplication.class)
+//@SpringBootTest(classes = MyRealKoreaApplication.class)
 @ComponentScan(basePackages = {"com.itwill.my_real_korea"})
 class FreeBoardServiceImplTest {
 

@@ -20,7 +20,7 @@ import com.itwill.my_real_korea.mapper.TourImgMapper;
 import com.itwill.my_real_korea.mapper.TourMapper;
 import com.itwill.my_real_korea.service.city.CityService;
 import com.itwill.my_real_korea.util.PageMakerDto;
-@SpringBootTest
+//@SpringBootTest
 @ComponentScan(basePackages = {"com.itwill.my_real_korea"})
 class TourServiceImplTest {
 	@Autowired

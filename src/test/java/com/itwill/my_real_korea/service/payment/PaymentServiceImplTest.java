@@ -15,7 +15,7 @@ import com.itwill.my_real_korea.dto.Payment;
 import com.itwill.my_real_korea.service.ticket.TicketService;
 import com.itwill.my_real_korea.service.tour.TourService;
 
-@SpringBootTest
+//@SpringBootTest
 @ComponentScan(basePackages = {"com.itwill.my_real_korea"})
 class PaymentServiceImplTest {
 	

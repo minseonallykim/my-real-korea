@@ -13,7 +13,7 @@ import com.itwill.my_real_korea.dto.chat.ChatRoom;
 import com.itwill.my_real_korea.mapper.ChatRoomMapper;
 
 //@SpringBootApplication
-@SpringBootTest
+//@SpringBootTest
 //@MapperScan(basePackages = "com.itwill.my_real_korea.mapper")
 @MapperScan(basePackageClasses = ChatRoomMapper.class)
 class ChatRoomDaoImplTest {

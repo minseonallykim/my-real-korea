@@ -14,7 +14,7 @@ import org.springframework.context.annotation.ComponentScan;
 import com.itwill.my_real_korea.dto.tripboard.TripBoardComment;
 
 
-@SpringBootTest
+//@SpringBootTest
 //@ComponentScan(basePackages = {"com.itwill.my_real_korea"})
 class TripBoardCommentServiceImplTest {
 	

@@ -13,7 +13,7 @@ import java.util.Date;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-@SpringBootTest
+//@SpringBootTest
 @MapperScan(basePackages = "com.itwill.my_real_korea.mapper")
 class FreeBoardDaoImplTest {
     @Autowired

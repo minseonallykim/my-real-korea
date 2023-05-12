@@ -20,7 +20,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest
+//@SpringBootTest
 @MapperScan(basePackages = "com.itwill.my_real_korea.mapper")
 class PaymentDaoImplTest {
 

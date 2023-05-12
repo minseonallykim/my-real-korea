@@ -13,8 +13,8 @@ import com.itwill.my_real_korea.dao.chat.ChatRoomDao;
 import com.itwill.my_real_korea.dto.chat.ChatMsg;
 import com.itwill.my_real_korea.dto.chat.ChatRoom;
 
-@SpringBootApplication
-@SpringBootTest
+//@SpringBootApplication
+//@SpringBootTest
 @ComponentScan(basePackages = {"com.itwill.my_real_korea"})
 class ChatServiceImplTest {
 

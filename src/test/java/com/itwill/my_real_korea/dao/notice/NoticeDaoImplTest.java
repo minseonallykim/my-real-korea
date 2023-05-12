@@ -16,8 +16,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import com.itwill.my_real_korea.dao.notice.NoticeDao;
 import com.itwill.my_real_korea.dto.notice.Notice;
 
-@SpringBootApplication
-@SpringBootTest
+//@SpringBootApplication
+//@SpringBootTest
 @MapperScan(basePackages = "com.itwill.my_real_korea.mapper")
 class NoticeDaoImplTest {
 

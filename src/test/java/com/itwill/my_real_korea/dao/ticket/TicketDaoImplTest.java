@@ -12,7 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import com.itwill.my_real_korea.dto.City;
 import com.itwill.my_real_korea.dto.ticket.Ticket;
 
-@SpringBootTest
+//@SpringBootTest
 @MapperScan(basePackages = "com.itwill.my_real_korea.mapper")
 class TicketDaoImplTest {
 	

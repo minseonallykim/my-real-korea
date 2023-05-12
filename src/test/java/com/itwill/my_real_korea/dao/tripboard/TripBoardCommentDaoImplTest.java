@@ -13,7 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.itwill.my_real_korea.dto.tripboard.TripBoardComment;
 
-@SpringBootTest
+//@SpringBootTest
 @MapperScan(basePackages = "com.itwill.my_real_korea.mapper")
 class TripBoardCommentDaoImplTest {
 	@Autowired

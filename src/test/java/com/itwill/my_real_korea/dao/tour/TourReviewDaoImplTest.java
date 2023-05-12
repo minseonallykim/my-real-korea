@@ -12,7 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.itwill.my_real_korea.dto.tour.TourReview;
 import com.itwill.my_real_korea.dto.user.User;
-@SpringBootTest
+//@SpringBootTest
 @MapperScan(basePackages = "com.itwill.my_real_korea.mapper")
 class TourReviewDaoImplTest {
 

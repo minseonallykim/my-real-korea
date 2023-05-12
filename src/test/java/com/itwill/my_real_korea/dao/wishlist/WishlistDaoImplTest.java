@@ -23,7 +23,7 @@ import com.itwill.my_real_korea.mapper.TourMapper;
 import com.itwill.my_real_korea.mapper.WishlistMapper;
 
 //@SpringBootApplication
-@SpringBootTest
+//@SpringBootTest
 @MapperScan(basePackages = "com.itwill.my_real_korea.mapper")
 //@MapperScan(basePackageClasses = {WishlistMapper.class, TicketMapper.class, TourMapper.class})
 class WishlistDaoImplTest {

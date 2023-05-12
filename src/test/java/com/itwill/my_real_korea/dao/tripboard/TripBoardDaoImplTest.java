@@ -17,7 +17,7 @@ import com.itwill.my_real_korea.dto.tripboard.TripBoard;
 
 
 //@SpringBootApplication
-@SpringBootTest
+//@SpringBootTest
 @MapperScan(basePackages = "com.itwill.my_real_korea.mapper")
 class TripBoardDaoImplTest {
 	

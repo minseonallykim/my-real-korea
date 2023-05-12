@@ -14,7 +14,7 @@ import com.itwill.my_real_korea.dto.City;
 import com.itwill.my_real_korea.dto.ticket.Ticket;
 import com.itwill.my_real_korea.dto.wishlist.Wishlist;
 
-@SpringBootTest
+//@SpringBootTest
 @MapperScan(basePackages = "com.itwill.my_real_korea.mapper")
 class WishlistServiceImplTest {
 

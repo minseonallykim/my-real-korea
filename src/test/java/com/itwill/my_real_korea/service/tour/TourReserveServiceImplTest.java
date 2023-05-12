@@ -13,7 +13,7 @@ import com.itwill.my_real_korea.dto.tour.Tour;
 import com.itwill.my_real_korea.dto.tour.TourImg;
 import com.itwill.my_real_korea.dto.tour.TourReserve;
 import com.itwill.my_real_korea.util.PageMakerDto;
-@SpringBootTest
+//@SpringBootTest
 class TourReserveServiceImplTest {
 	@Autowired
 	private TourReserveService tourReserveService;

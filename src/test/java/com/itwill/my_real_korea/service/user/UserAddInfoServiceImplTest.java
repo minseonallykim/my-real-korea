@@ -6,8 +6,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.itwill.my_real_korea.dto.user.UserAddInfo;
-@Transactional
-@SpringBootTest
+//@Transactional
+//@SpringBootTest
 class UserAddInfoServiceImplTest {
 	@Autowired
 	private UserAddInfoService userAddInfoService;

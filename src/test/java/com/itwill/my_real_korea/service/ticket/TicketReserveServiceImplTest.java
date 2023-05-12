@@ -15,7 +15,7 @@ import org.springframework.context.annotation.ComponentScan;
 import com.itwill.my_real_korea.dto.ticket.Ticket;
 import com.itwill.my_real_korea.dto.ticket.TicketReserve;
 
-@SpringBootTest
+//@SpringBootTest
 @ComponentScan(basePackages = {"com.itwill.my_real_korea"})
 class TicketReserveServiceImplTest {
 

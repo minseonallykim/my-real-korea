@@ -15,7 +15,7 @@ import com.itwill.my_real_korea.dto.ticket.TicketImg;
 import com.itwill.my_real_korea.mapper.CityMapper;
 import com.itwill.my_real_korea.mapper.TicketMapper;
 import com.itwill.my_real_korea.service.city.CityService;
-@SpringBootTest
+//@SpringBootTest
 @ComponentScan(basePackages = {"com.itwill.my_real_korea"})
 class TicketServiceImplTest {
     @Autowired

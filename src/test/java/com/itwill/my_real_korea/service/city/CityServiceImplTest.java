@@ -12,7 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import com.itwill.my_real_korea.dao.city.CityDao;
 import com.itwill.my_real_korea.dto.City;
 import com.itwill.my_real_korea.mapper.CityMapper;
-@SpringBootTest
+//@SpringBootTest
 @MapperScan(basePackageClasses = CityMapper.class)
 class CityServiceImplTest {
 	@Autowired

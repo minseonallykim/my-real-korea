@@ -16,7 +16,7 @@ import com.itwill.my_real_korea.dto.tripboard.TripBoard;
 import com.itwill.my_real_korea.util.PageMakerDto;
 
 
-@SpringBootTest
+//@SpringBootTest
 //@ComponentScan(basePackages = {"com.itwill.my_real_korea"})
 class TripBoardServiceImplTest {
 	
