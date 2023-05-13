@@ -50,8 +50,4 @@ public interface WishlistMapper {
 	 * 위시리스트 한 개 삭제
 	 */
 	int deleteWishlistByNoAndId(Map<String, Object> map);
-
-	
-	
-	
 }

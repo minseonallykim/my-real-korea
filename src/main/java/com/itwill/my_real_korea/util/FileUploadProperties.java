@@ -6,10 +6,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties("file")
 public class FileUploadProperties {
 
-	/**
+	/*
 	 * 업로드 된 파일이 저장될 경로
 	 */
-//	private String location = "C:/Temp/";
 	private String location = "upload-dir";
 
 	public String getLocation() {

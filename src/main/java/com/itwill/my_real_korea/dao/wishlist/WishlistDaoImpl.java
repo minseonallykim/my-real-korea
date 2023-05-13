@@ -12,11 +12,11 @@ import com.itwill.my_real_korea.mapper.NoticeMapper;
 import com.itwill.my_real_korea.mapper.WishlistMapper;
 
 @Repository
-public class WishlistDaoImpl implements WishlistDao{
+public class WishlistDaoImpl implements WishlistDao {
 
 	@Autowired
 	private WishlistMapper wishlistMapper;
-	
+
 	public WishlistDaoImpl() {
 		System.out.println("WishlistDaoImpl 기본생성자 호출");
 	}
@@ -25,7 +25,7 @@ public class WishlistDaoImpl implements WishlistDao{
 	public Wishlist selectByWishNo(int wishNo) {
 		return wishlistMapper.selectByWishNo(wishNo);
 	}
-	
+
 	@Override
 	public List<Wishlist> selectAll(String userId) {
 		return wishlistMapper.selectAll(userId);
@@ -79,6 +79,5 @@ public class WishlistDaoImpl implements WishlistDao{
 		wishMap.put("tiNo", tiNo);
 		return wishlistMapper.selectWishlistTicketCount(wishMap);
 	}
-
 
 }

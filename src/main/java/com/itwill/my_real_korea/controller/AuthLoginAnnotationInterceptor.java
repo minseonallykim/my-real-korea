@@ -8,7 +8,9 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import com.itwill.my_real_korea.dto.user.User;
-
+/*
+ * 로그인 체크하는 interceptor
+ */
 public class AuthLoginAnnotationInterceptor implements HandlerInterceptor {
 	public AuthLoginAnnotationInterceptor() {
 	}

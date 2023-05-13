@@ -9,15 +9,15 @@ import com.itwill.my_real_korea.dao.wishlist.WishlistDao;
 import com.itwill.my_real_korea.dto.wishlist.Wishlist;
 
 @Service
-public class WishlistServiceImpl implements WishlistService{
+public class WishlistServiceImpl implements WishlistService {
 
 	@Autowired
 	private WishlistDao wishlistDao;
-	
+
 	public WishlistServiceImpl() {
 		System.out.println("WishlistServiceImpl() 기본 생성자 호출");
 	}
-	
+
 	@Override
 	public List<Wishlist> selectAll(String userId) {
 		return wishlistDao.selectAll(userId);
@@ -27,7 +27,7 @@ public class WishlistServiceImpl implements WishlistService{
 	public List<Wishlist> selectAllWithTicketAndTour(String userId) {
 		return wishlistDao.selectAllWithTicketAndTour(userId);
 	}
-	
+
 	@Override
 	public Wishlist selectByWishNo(int wishNo) {
 		return wishlistDao.selectByWishNo(wishNo);

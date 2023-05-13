@@ -48,8 +48,4 @@ public class Wishlist {
 		this.ticket = ticket;
 		this.tour = tour;
 	}
-	
-	
-	
-	
 }

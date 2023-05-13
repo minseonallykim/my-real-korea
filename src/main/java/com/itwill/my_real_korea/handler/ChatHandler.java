@@ -60,14 +60,14 @@ public class ChatHandler extends TextWebSocketHandler {
 		sessionList.add(session);
 		onlineList.add(senderId);
 		userSession.put(senderId, session);
-		
+
 		log.info("보내는 사람 : sessionId >>> " + senderId);
-		
+
 		// 받는 사람 = 마스터, 마스터에게 접속 성공 메세지 보내기
 		Map<String, Object> data = new HashMap<>();
 		data.put("senderId", senderId);
 		data.put("message", senderId + " 님이 접속했습니다.");
-		//data.put("receiverId", receiverId);
+		// data.put("receiverId", receiverId);
 		data.put("newOne", senderId);
 
 		log.info("afterConnectionEstablished final data >>> " + data);
@@ -113,7 +113,7 @@ public class ChatHandler extends TextWebSocketHandler {
 			String tempId2 = onlineList.get(1);
 			if (tempId1.equals(senderId)) {
 				receiverId = tempId2;
-			} else if(tempId2.equals(senderId)) {
+			} else if (tempId2.equals(senderId)) {
 				receiverId = tempId1;
 			}
 		} else {
@@ -145,10 +145,10 @@ public class ChatHandler extends TextWebSocketHandler {
 				userSession.get(receiverId).sendMessage(new TextMessage(msg));
 			}
 			// 내아이디와 상대아이디 다를 때 세션에 메세지 보내기
-			if(!senderId.equals(receiverId)) {
-				//dataMap.put("receiverId", senderId);
+			if (!senderId.equals(receiverId)) {
+				// dataMap.put("receiverId", senderId);
 				msg = json.writeValueAsString(dataMap);
-				session.sendMessage(new TextMessage(msg)); 
+				session.sendMessage(new TextMessage(msg));
 			}
 		} catch (JsonProcessingException e1) {
 			e1.printStackTrace();
@@ -164,58 +164,21 @@ public class ChatHandler extends TextWebSocketHandler {
 		String senderId = loginUser.getUserId();
 		// 받는 사람
 		String receiverId = "";
-//		if (onlineList.size() >= 2) {
-//			String tempId1 = onlineList.get(0);
-//			String tempId2 = onlineList.get(1);
-//			if (tempId1.equals(senderId)) {
-//				receiverId = tempId2;
-//			} else if (tempId2.equals(senderId)) {
-//				receiverId = tempId1;
-//			}
-//		} else {
-//			receiverId = "master";
-//		}
-//		// 마스터가 모두에게 메세지 보내기
-//		if (senderId.equals("master")) {
-//			TextMessage msg = new TextMessage(senderId + " 님이 퇴장했습니다.");
-//			try {
-//				sendToAll(msg, senderId);
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//			
-//		} else {
-//			Map<String, Object> data = new HashMap<>();
-//			
-//			data.put("message", senderId + " 님이 퇴장했습니다.");
-//			data.put("receiverId", receiverId);
-//			data.put("outOne", senderId );
-//			
-//			TextMessage msg;
-//			try {
-//				msg = new TextMessage(json.writeValueAsString(data));
-//				handleMessage(session, msg);
-//			} catch (JsonProcessingException e) {
-//				e.printStackTrace();
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//		}
 		// 저장되었던 세션 관련 정보 삭제
 		sessionList.remove(session);
 		onlineList.remove(senderId);
 		userSession.remove(senderId);
 		log.info(session + "세션 접속 해제");
 		log.info(senderId + " 님이 퇴장했습니다.>>>>>>>>>>>>>>>>>>>>>");
-		
-		
+
 	}
 
 	// JSON 을 맵 형태로 변환
 	public Map<String, Object> jsonToMap(String jsonString) throws JsonMappingException, JsonProcessingException {
 		Map<String, Object> map = new HashMap<>();
 		ObjectMapper jmapper = new ObjectMapper();
-		map = jmapper.readValue(jsonString, new TypeReference<Map<String, Object>>() {});
+		map = jmapper.readValue(jsonString, new TypeReference<Map<String, Object>>() {
+		});
 
 		return map;
 	}
@@ -252,7 +215,7 @@ public class ChatHandler extends TextWebSocketHandler {
 		} else {
 			receiverId = "master";
 		}
-		
+
 		dataMap.put("message", message.getPayload());
 		dataMap.put("senderId", senderId);
 		dataMap.put("receiverId", receiverId);
@@ -263,10 +226,10 @@ public class ChatHandler extends TextWebSocketHandler {
 
 		log.info("final dataMap >>> " + dataMap);
 		log.info("receiver session >>> " + userSession.get(receiverId));
-		
+
 		// 세션맵에 들어있는 사람들에게 메세지 보내기
 		for (String r : userSession.keySet()) {
-			//dataMap.put("receiverId", r);
+			// dataMap.put("receiverId", r);
 			String msg = json.writeValueAsString(dataMap);
 			userSession.get(r).sendMessage(new TextMessage(msg));
 		}
@@ -282,5 +245,4 @@ public class ChatHandler extends TextWebSocketHandler {
 		log.info("map >>> " + map);
 		session.sendMessage(new TextMessage(list));
 	}
-
 }

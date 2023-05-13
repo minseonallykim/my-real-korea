@@ -1,52 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.itwill.my_real_korea.mapper.ChatRoomMapper">
+<mapper
+	namespace="com.itwill.my_real_korea.mapper.ChatRoomMapper">
 
-<resultMap type="com.itwill.my_real_korea.dto.chat.ChatRoom" id="chatRoomListResultMap" autoMapping="true">
-	<collection property="chatMsgList" 
-				javaType="java.util.List" 
-				ofType="com.itwill.my_real_korea.dto.chat.ChatMsg"
-				autoMapping="true">
-	</collection>
-</resultMap>
+	<resultMap type="com.itwill.my_real_korea.dto.chat.ChatRoom"
+		id="chatRoomListResultMap" autoMapping="true">
+		<collection property="chatMsgList"
+			javaType="java.util.List"
+			ofType="com.itwill.my_real_korea.dto.chat.ChatMsg" autoMapping="true">
+		</collection>
+	</resultMap>
 
-<select id="selectAll" parameterType="String" resultMap="chatRoomListResultMap">
-	select a.room_no, a.room_name, msg_no, msg_send_time, msg_content, msg_read, user_id
-	from (select room_no, room_name from chat_room where from_id=#{userId} or to_id=#{userId}) a
-	inner join (select aa.msg_no, aa.msg_send_time, aa.room_no, aa.msg_content,aa.msg_read, aa.user_id from chat_msg aa
-	            ) b 
-	on a.room_no = b.room_no
-	order by msg_send_time desc
-</select>
+	<select id="selectAll" parameterType="String"
+		resultMap="chatRoomListResultMap">
+		select a.room_no, a.room_name, msg_no, msg_send_time, msg_content, msg_read,
+		user_id
+		from (select room_no, room_name from chat_room where from_id=#{userId} or
+		to_id=#{userId}) a
+		inner join (select aa.msg_no, aa.msg_send_time, aa.room_no,
+		aa.msg_content,aa.msg_read, aa.user_id from chat_msg aa
+		) b
+		on a.room_no = b.room_no
+		order by msg_send_time desc
+	</select>
 
-<select id="selectByRoomName" parameterType="String" resultType="com.itwill.my_real_korea.dto.chat.ChatRoom">
-	select * from chat_room where room_name=#{roomName}
-</select>
+	<select id="selectByRoomName" parameterType="String"
+		resultType="com.itwill.my_real_korea.dto.chat.ChatRoom">
+		select * from chat_room where room_name=#{roomName}
+	</select>
 
-<select id="selectByRoomNameWith" parameterType="String" resultType="com.itwill.my_real_korea.dto.chat.ChatRoom">
-	select * from chat_room where room_name like '%'||#{roomName}||'%'
-</select>
+	<select id="selectByRoomNameWith" parameterType="String"
+		resultType="com.itwill.my_real_korea.dto.chat.ChatRoom">
+		select * from chat_room where room_name like '%'||#{roomName}||'%'
+	</select>
 
-<select id="selectById" parameterType="java.util.Map" resultType="com.itwill.my_real_korea.dto.chat.ChatRoom">
-	select * from chat_room where from_id=#{fromId} and to_id=#{toId}
-</select>
+	<select id="selectById" parameterType="java.util.Map"
+		resultType="com.itwill.my_real_korea.dto.chat.ChatRoom">
+		select * from chat_room where from_id=#{fromId} and to_id=#{toId}
+	</select>
 
-<select id="selectExist" parameterType="java.util.Map" resultType="com.itwill.my_real_korea.dto.chat.ChatRoom">
-	select * from chat_room where from_id=#{fromId} and to_id=#{toId}
-</select>
+	<select id="selectExist" parameterType="java.util.Map"
+		resultType="com.itwill.my_real_korea.dto.chat.ChatRoom">
+		select * from chat_room where from_id=#{fromId} and to_id=#{toId}
+	</select>
 
-<insert id="insertChatRoom" parameterType="com.itwill.my_real_korea.dto.chat.ChatRoom">
-	insert into chat_room(room_name) 
-	values (#{roomName})
-</insert>
+	<insert id="insertChatRoom"
+		parameterType="com.itwill.my_real_korea.dto.chat.ChatRoom">
+		insert into chat_room(room_name)
+		values (#{roomName})
+	</insert>
 
-<delete id="deleteChatRoom"  parameterType="String">
-	delete from chat_room where room_name=#{roomName}
-</delete>
+	<delete id="deleteChatRoom" parameterType="String">
+		delete from chat_room where room_name=#{roomName}
+	</delete>
 
-<select id="countNotReadInChatRoom" parameterType="java.util.Map" resultType="java.lang.Integer">
-	select count(*) from chat_msg where room_no=#{roomNo} and msg_read=0 and user_id!=#{userId}
-</select>
+	<select id="countNotReadInChatRoom"
+		parameterType="java.util.Map" resultType="java.lang.Integer">
+		select count(*) from chat_msg where room_no=#{roomNo} and msg_read=0 and
+		user_id!=#{userId}
+	</select>
 
 
 </mapper>

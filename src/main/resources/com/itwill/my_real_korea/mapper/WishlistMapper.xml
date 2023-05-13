@@ -1,78 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.itwill.my_real_korea.mapper.WishlistMapper">
+<mapper
+	namespace="com.itwill.my_real_korea.mapper.WishlistMapper">
 
-<resultMap type="com.itwill.my_real_korea.dto.wishlist.Wishlist" id="wishlistWithTicketTourResultMap" autoMapping="true">
-	 <association property="ticket" javaType="com.itwill.my_real_korea.dto.ticket.Ticket" autoMapping="true">
-	 </association>
-	 <association property="tour" javaType="com.itwill.my_real_korea.dto.tour.Tour" autoMapping="true">
-	 </association>
-	 <association property="city" javaType="com.itwill.my_real_korea.dto.City" autoMapping="true">
-	 </association>
-</resultMap>
+	<resultMap
+		type="com.itwill.my_real_korea.dto.wishlist.Wishlist"
+		id="wishlistWithTicketTourResultMap" autoMapping="true">
+		<association property="ticket"
+			javaType="com.itwill.my_real_korea.dto.ticket.Ticket"
+			autoMapping="true">
+		</association>
+		<association property="tour"
+			javaType="com.itwill.my_real_korea.dto.tour.Tour" autoMapping="true">
+		</association>
+		<association property="city"
+			javaType="com.itwill.my_real_korea.dto.City" autoMapping="true">
+		</association>
+	</resultMap>
 
 
-<!--  위시리스트 리스트 전체 보기 (user_id)  -->
-<select id="selectAll" parameterType="String" resultType="com.itwill.my_real_korea.dto.wishlist.Wishlist">
-	select * from wishlist where user_id=#{userId}
-</select>
+	<!-- 위시리스트 리스트 전체 보기 (user_id) -->
+	<select id="selectAll" parameterType="String"
+		resultType="com.itwill.my_real_korea.dto.wishlist.Wishlist">
+		select * from wishlist where user_id=#{userId}
+	</select>
 
-<!--  위시리스트 리스트 보기 + 티켓상품 + 티켓이미지 + 투어상품+투어이미지+city  (user_id)  -->
-<select id="selectAllWithTicketAndTour" parameterType="String" resultMap="wishlistWithTicketTourResultMap">
-	select * from wishlist w 
-	left join ticket ti on w.ti_no=ti.ti_no
-	left join tour tu on w.to_no=tu.to_no
-	left join city c on ti.city_no=c.city_no or tu.city_no=c.city_no
-	where user_id=#{userId}
-</select>
+	<!-- 위시리스트 리스트 보기 + 티켓상품 + 티켓이미지 + 투어상품+투어이미지+city (user_id) -->
+	<select id="selectAllWithTicketAndTour" parameterType="String"
+		resultMap="wishlistWithTicketTourResultMap">
+		select * from wishlist w
+		left join ticket ti on w.ti_no=ti.ti_no
+		left join tour tu on w.to_no=tu.to_no
+		left join city c on ti.city_no=c.city_no or tu.city_no=c.city_no
+		where user_id=#{userId}
+	</select>
 
-<!--  위시리스트 한개 보기 (wish_no)  -->
-<select id="selectByWishNo" parameterType="java.lang.Integer" resultType="com.itwill.my_real_korea.dto.wishlist.Wishlist">
-	select * from wishlist where wish_no=#{wishNo}
-</select>
+	<!-- 위시리스트 한개 보기 (wish_no) -->
+	<select id="selectByWishNo" parameterType="java.lang.Integer"
+		resultType="com.itwill.my_real_korea.dto.wishlist.Wishlist">
+		select * from wishlist where wish_no=#{wishNo}
+	</select>
 
-<!--  위시리스트 담겨있는 티켓/투어 상품의 수   -->
-<select id="selectWishlistTourCount" parameterType="java.util.Map" resultType="java.lang.Integer">
-	select count(*) from wishlist where user_id=#{userId} and to_no=#{toNo}
-</select>
+	<!-- 위시리스트 담겨있는 티켓/투어 상품의 수 -->
+	<select id="selectWishlistTourCount"
+		parameterType="java.util.Map" resultType="java.lang.Integer">
+		select count(*) from wishlist where user_id=#{userId} and to_no=#{toNo}
+	</select>
 
-<!--  위시리스트 담겨있는 티켓/투어 상품의 수   -->
-<select id="selectWishlistTicketCount" parameterType="java.util.Map" resultType="java.lang.Integer">
-	select count(*) from wishlist where user_id=#{userId}and ti_no=#{tiNo}
-</select>
+	<!-- 위시리스트 담겨있는 티켓/투어 상품의 수 -->
+	<select id="selectWishlistTicketCount"
+		parameterType="java.util.Map" resultType="java.lang.Integer">
+		select count(*) from wishlist where user_id=#{userId}and ti_no=#{tiNo}
+	</select>
 
-<!--  위시리스트 담겨있는 티켓/투어 상품의 수   -->
-<select id="selectWishlistCount" parameterType="String" resultType="java.lang.Integer">
-	select count(*) from wishlist where user_id=#{userId}
-</select>
+	<!-- 위시리스트 담겨있는 티켓/투어 상품의 수 -->
+	<select id="selectWishlistCount" parameterType="String"
+		resultType="java.lang.Integer">
+		select count(*) from wishlist where user_id=#{userId}
+	</select>
 
-<!--  티켓 상품 위시리스트에 추가 -->
-<insert id="insertTicketToWishlist" parameterType="com.itwill.my_real_korea.dto.wishlist.Wishlist" >
-	<selectKey resultType="java.lang.Integer" keyProperty="wishNo" order="BEFORE">
-		select wishlist_wish_no_seq.nextval from dual
-	</selectKey>
-	insert into wishlist(wish_no,user_id,ti_no,to_no) 
-	values(#{wishNo},#{userId},#{ticket.tiNo},null)
-</insert>
+	<!-- 티켓 상품 위시리스트에 추가 -->
+	<insert id="insertTicketToWishlist"
+		parameterType="com.itwill.my_real_korea.dto.wishlist.Wishlist">
+		<selectKey resultType="java.lang.Integer"
+			keyProperty="wishNo" order="BEFORE">
+			select wishlist_wish_no_seq.nextval from dual
+		</selectKey>
+		insert into wishlist(wish_no,user_id,ti_no,to_no)
+		values(#{wishNo},#{userId},#{ticket.tiNo},null)
+	</insert>
 
-<!--투어 상품 위시리스트에 추가 -->
-<insert id="insertTourToWishlist" parameterType="com.itwill.my_real_korea.dto.wishlist.Wishlist" >
-	<selectKey resultType="java.lang.Integer" keyProperty="wishNo" order="BEFORE">
-		select wishlist_wish_no_seq.nextval from dual
-	</selectKey>
-	insert into wishlist(wish_no,user_id,ti_no,to_no) 
-	values(#{wishNo},#{userId},null,#{tour.toNo})
-</insert>
+	<!--투어 상품 위시리스트에 추가 -->
+	<insert id="insertTourToWishlist"
+		parameterType="com.itwill.my_real_korea.dto.wishlist.Wishlist">
+		<selectKey resultType="java.lang.Integer"
+			keyProperty="wishNo" order="BEFORE">
+			select wishlist_wish_no_seq.nextval from dual
+		</selectKey>
+		insert into wishlist(wish_no,user_id,ti_no,to_no)
+		values(#{wishNo},#{userId},null,#{tour.toNo})
+	</insert>
 
-<!--  위시리스트 전체 삭제  -->
-<delete id="deleteWishlist" parameterType="String">
-	delete wishlist where user_id=#{userId}
-</delete>
+	<!-- 위시리스트 전체 삭제 -->
+	<delete id="deleteWishlist" parameterType="String">
+		delete wishlist where user_id=#{userId}
+	</delete>
 
-<!--  위시리스트 한 개 삭제  -->
-<delete id="deleteWishlistByNoAndId" parameterType="java.util.Map">
-	delete wishlist where wish_no=#{wishNo} and user_id=#{userId}
-</delete>
+	<!-- 위시리스트 한 개 삭제 -->
+	<delete id="deleteWishlistByNoAndId"
+		parameterType="java.util.Map">
+		delete wishlist where wish_no=#{wishNo} and user_id=#{userId}
+	</delete>
 
 
 

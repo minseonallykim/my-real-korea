@@ -38,7 +38,6 @@ public class WebSocketChat {
 	String userKey = "";
 	
 	// 웹소켓 연결 시
-	//@OnOpen
 	public void onOpen(Session session) {
 		String userId = "";
 		String roomNo = "";
@@ -63,26 +62,16 @@ public class WebSocketChat {
 		userSessions.put(key, session);
 		System.out.println(userSessions);
 		
-//		if (!clients.contains(session)) {
-//			clients.add(session);
-//			log.info("OnOpen : session open" + session);
-//		} else {
-//			log.info("이미 연결된 session");
-//		}
 	}
 
 	// 웹소켓 연결 끊길 때
-	//@OnClose
 	public void OnClose(Session session) {
 		System.out.println("socket 닫기 : " + userKey);
 		userSessions.remove(userKey);
 		System.out.println(userSessions);
-//		clients.remove(session);
-//		log.info("OnClose:");
 	}
 
 	// 웹소켓 메세지 보낼 때
-	//@OnMessage
 	public void onMessage(String message, Session session) {
 		System.out.println("---------ON MESSAGE--------");
 		System.out.println(message);
@@ -164,16 +153,5 @@ public class WebSocketChat {
 				e.printStackTrace();
 			}
 		} 
-		
-//		log.info("OnMessage:" + message);
-//		for (Session s : clients) {
-//            log.info("send data : {}", message);
-//
-//            try {
-//				s.getBasicRemote().sendText(message);
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
-//        }
 	}
 }

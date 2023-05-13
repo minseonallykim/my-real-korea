@@ -2,107 +2,128 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itwill.my_real_korea.mapper.NoticeMapper">
 
-<!--  공지사항 게시글 추가  -->
-<insert id="insertNotice" parameterType="com.itwill.my_real_korea.dto.notice.Notice" >
-	<selectKey resultType="java.lang.Integer" keyProperty="nNo" order="BEFORE">
-		select notice_n_no_seq.nextval from dual
-	</selectKey>
-	insert into notice(n_no, n_title, n_content, n_date, n_readcount, n_img, user_id) 
-	values (#{nNo},#{nTitle},#{nContent},sysdate,#{nReadcount},#{nImg},#{userId})
-</insert>
+	<!-- 공지사항 게시글 추가 -->
+	<insert id="insertNotice"
+		parameterType="com.itwill.my_real_korea.dto.notice.Notice">
+		<selectKey resultType="java.lang.Integer" keyProperty="nNo"
+			order="BEFORE">
+			select notice_n_no_seq.nextval from dual
+		</selectKey>
+		insert into notice(n_no, n_title, n_content, n_date, n_readcount,
+		n_img, user_id)
+		values
+		(#{nNo},#{nTitle},#{nContent},sysdate,#{nReadcount},#{nImg},#{userId})
+	</insert>
 
-<!--  공지사항 게시글 이미지 변경(추가) -->
-<update id="updateNoticeImg" parameterType="java.util.Map">
-	update notice set n_img = #{nImg} where n_no = #{nNo}
-</update>
+	<!-- 공지사항 게시글 이미지 변경(추가) -->
+	<update id="updateNoticeImg" parameterType="java.util.Map">
+		update notice set n_img = #{nImg} where n_no = #{nNo}
+	</update>
 
-<!--  공지사항 게시글 업로드된 파일 변경(추가) -->
-<update id="updateUploadFile" parameterType="java.util.Map">
-	update notice set upload_file = #{uploadFile} where n_no = #{nNo}
-</update>
+	<!-- 공지사항 게시글 업로드된 파일 변경(추가) -->
+	<update id="updateUploadFile" parameterType="java.util.Map">
+		update notice set upload_file = #{uploadFile} where n_no = #{nNo}
+	</update>
 
-<!--  공지사항 게시글 이미지 null 로 변경 -->
-<update id="updateNoticeImgNull" parameterType="java.lang.Integer">
-	update notice set n_img = null where n_no = #{nNo}
-</update>
+	<!-- 공지사항 게시글 이미지 null 로 변경 -->
+	<update id="updateNoticeImgNull"
+		parameterType="java.lang.Integer">
+		update notice set n_img = null where n_no = #{nNo}
+	</update>
 
-<!--  공지사항 게시글 번호(boardno)로 해당 게시글 보기  -->
-<select id="selectByNo" parameterType="java.lang.Integer" resultType="com.itwill.my_real_korea.dto.notice.Notice">
-	select * from notice where n_no=#{nNo}
-</select>
+	<!-- 공지사항 게시글 번호(boardno)로 해당 게시글 보기 -->
+	<select id="selectByNo" parameterType="java.lang.Integer"
+		resultType="com.itwill.my_real_korea.dto.notice.Notice">
+		select * from notice where n_no=#{nNo}
+	</select>
 
-<!--  공지사항 리스트 보기 (게시글 시작번호, 게시글 끝번호) - 페이징 처리 -->
-<select id="selectAll" parameterType="java.util.Map" resultType="com.itwill.my_real_korea.dto.notice.Notice">
-	select * from
-    (select rownum idx, s.* from
-        (select n_no, n_title, n_content, n_date, n_readcount, n_img, user_id from notice
-        order by n_no desc) s
-    )
-	<![CDATA[ where idx >= #{pageStart} and idx <= #{pageEnd} ]]> 
-</select>
+	<!-- 공지사항 리스트 보기 (게시글 시작번호, 게시글 끝번호) - 페이징 처리 -->
+	<select id="selectAll" parameterType="java.util.Map"
+		resultType="com.itwill.my_real_korea.dto.notice.Notice">
+		select * from
+		(select rownum idx, s.* from
+		(select n_no, n_title, n_content, n_date, n_readcount, n_img, user_id from
+		notice
+		order by n_no desc) s
+		)
+	<![CDATA[ where idx >= #{pageStart} and idx <= #{pageEnd} ]]>
+	</select>
 
-<!-- 최신순 정렬 : 공지사항 리스트 보기 (게시글 시작번호, 게시글 끝번호) - 페이징 처리 -->
-<select id="selectAllOrderByDateDesc" parameterType="java.util.Map" resultType="com.itwill.my_real_korea.dto.notice.Notice">
-	select * from
-    (select rownum idx, s.* from
-        (select n_no, n_title, n_content, n_date, n_readcount, n_img, user_id from notice
-        order by n_date desc) s
-    )
-	<![CDATA[ where idx >= #{pageStart} and idx <= #{pageEnd} ]]> 
-</select>
+	<!-- 최신순 정렬 : 공지사항 리스트 보기 (게시글 시작번호, 게시글 끝번호) - 페이징 처리 -->
+	<select id="selectAllOrderByDateDesc"
+		parameterType="java.util.Map"
+		resultType="com.itwill.my_real_korea.dto.notice.Notice">
+		select * from
+		(select rownum idx, s.* from
+		(select n_no, n_title, n_content, n_date, n_readcount, n_img, user_id from
+		notice
+		order by n_date desc) s
+		)
+	<![CDATA[ where idx >= #{pageStart} and idx <= #{pageEnd} ]]>
+	</select>
 
-<!--  오래된순 정렬 : 공지사항 리스트 보기 (게시글 시작번호, 게시글 끝번호) - 페이징 처리 -->
-<select id="selectAllOrderByDateAsc" parameterType="java.util.Map" resultType="com.itwill.my_real_korea.dto.notice.Notice">
-	select * from
-    (select rownum idx, s.* from
-        (select n_no, n_title, n_content, n_date, n_readcount, n_img, user_id from notice
-        order by n_date asc) s
-    )
-	<![CDATA[ where idx >= #{pageStart} and idx <= #{pageEnd} ]]> 
-</select>
+	<!-- 오래된순 정렬 : 공지사항 리스트 보기 (게시글 시작번호, 게시글 끝번호) - 페이징 처리 -->
+	<select id="selectAllOrderByDateAsc"
+		parameterType="java.util.Map"
+		resultType="com.itwill.my_real_korea.dto.notice.Notice">
+		select * from
+		(select rownum idx, s.* from
+		(select n_no, n_title, n_content, n_date, n_readcount, n_img, user_id from
+		notice
+		order by n_date asc) s
+		)
+	<![CDATA[ where idx >= #{pageStart} and idx <= #{pageEnd} ]]>
+	</select>
 
-<!--  조회수 높은순 정렬 : 공지사항 리스트 보기 (게시글 시작번호, 게시글 끝번호) - 페이징 처리 -->
-<select id="selectAllOrderByReadcount" parameterType="java.util.Map" resultType="com.itwill.my_real_korea.dto.notice.Notice">
-	select * from
-    (select rownum idx, s.* from
-        (select n_no, n_title, n_content, n_date, n_readcount, n_img, user_id from notice
-        order by n_readcount desc) s
-    )
-	<![CDATA[ where idx >= #{pageStart} and idx <= #{pageEnd} ]]> 
-</select>
+	<!-- 조회수 높은순 정렬 : 공지사항 리스트 보기 (게시글 시작번호, 게시글 끝번호) - 페이징 처리 -->
+	<select id="selectAllOrderByReadcount"
+		parameterType="java.util.Map"
+		resultType="com.itwill.my_real_korea.dto.notice.Notice">
+		select * from
+		(select rownum idx, s.* from
+		(select n_no, n_title, n_content, n_date, n_readcount, n_img, user_id from
+		notice
+		order by n_readcount desc) s
+		)
+	<![CDATA[ where idx >= #{pageStart} and idx <= #{pageEnd} ]]>
+	</select>
 
-<!--  공지사항 게시글 삭제 -->
-<delete id="deleteNotice" parameterType="java.lang.Integer">
-	delete notice where n_no=#{nNo}
-</delete>
+	<!-- 공지사항 게시글 삭제 -->
+	<delete id="deleteNotice" parameterType="java.lang.Integer">
+		delete notice where n_no=#{nNo}
+	</delete>
 
-<!--  공지사항 게시글 내용 수정 -->
-<update id="updateNotice" parameterType="com.itwill.my_real_korea.dto.notice.Notice">
-	update notice set n_title=#{nTitle},n_content=#{nContent} where n_no=#{nNo}
-</update>
-<!--  공지사항 게시글 조회수 1 증가 -->
-<update id="increaseReadCount" parameterType="java.lang.Integer">
-	update notice set n_readcount=n_readcount+1 where n_no=#{nNo}
-</update>
+	<!-- 공지사항 게시글 내용 수정 -->
+	<update id="updateNotice"
+		parameterType="com.itwill.my_real_korea.dto.notice.Notice">
+		update notice set n_title=#{nTitle},n_content=#{nContent} where n_no=#{nNo}
+	</update>
+	<!-- 공지사항 게시글 조회수 1 증가 -->
+	<update id="increaseReadCount" parameterType="java.lang.Integer">
+		update notice set n_readcount=n_readcount+1 where n_no=#{nNo}
+	</update>
 
-<!--  공지사항 게시글 총 개수 조회 -->
-<select id="selectNoticeCount" resultType="java.lang.Integer">
-	select count(*) cnt from notice
-</select>
+	<!-- 공지사항 게시글 총 개수 조회 -->
+	<select id="selectNoticeCount" resultType="java.lang.Integer">
+		select count(*) cnt from notice
+	</select>
 
-<!--  검색된 게시글 총 개수 조회 -->
-<select id="selectSearchCount" parameterType="String" resultType="java.lang.Integer">
-	select count(*) cnt from notice where n_title like '%'||#{keyword}||'%'
-</select>
+	<!-- 검색된 게시글 총 개수 조회 -->
+	<select id="selectSearchCount" parameterType="String"
+		resultType="java.lang.Integer">
+		select count(*) cnt from notice where n_title like '%'||#{keyword}||'%'
+	</select>
 
-<!--  공지사항 게시판 title 키워드로 검색 -->
-<select id="selectSearchNoticeList" parameterType="map" resultType="com.itwill.my_real_korea.dto.notice.Notice">
-	select * from
-    (select rownum idx, s.* from
-        (select n_no, n_title, n_content, n_date, n_readcount, n_img, user_id from notice
-        where n_title like '%'||#{keyword}||'%'
-        order by n_no desc) s
-    )
-	<![CDATA[ where idx >= #{pageStart} and idx <= #{pageEnd} ]]> 
-</select>
+	<!-- 공지사항 게시판 title 키워드로 검색 -->
+	<select id="selectSearchNoticeList" parameterType="map"
+		resultType="com.itwill.my_real_korea.dto.notice.Notice">
+		select * from
+		(select rownum idx, s.* from
+		(select n_no, n_title, n_content, n_date, n_readcount, n_img, user_id from
+		notice
+		where n_title like '%'||#{keyword}||'%'
+		order by n_no desc) s
+		)
+	<![CDATA[ where idx >= #{pageStart} and idx <= #{pageEnd} ]]>
+	</select>
 </mapper>

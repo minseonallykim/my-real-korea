@@ -14,11 +14,10 @@ import com.itwill.my_real_korea.service.city.CityService;
 public class CommonController {
 	@Autowired
 	private CityService cityService;
-	
-	// 메인 페이지 
+
+	// 메인 페이지
 	@GetMapping("/index")
 	public String index(Model model) {
-		
 		try {
 			List<City> cityList = cityService.findAllCity();
 			model.addAttribute("cityList", cityList);
@@ -26,12 +25,10 @@ public class CommonController {
 			e.printStackTrace();
 			return "error";
 		}
-		
-		
 		return "index";
 	}
-	
-	// 에러 페이지 
+
+	// 에러 페이지
 	@GetMapping("/error")
 	public String error() {
 		return "error";

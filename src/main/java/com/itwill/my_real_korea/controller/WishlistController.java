@@ -28,56 +28,36 @@ public class WishlistController {
 	@Autowired
 	private WishlistService wishlistService;
 	@Autowired
-	private TourImgService  tourImgService;
+	private TourImgService tourImgService;
 	@Autowired
 	private TicketImgService ticketImgService;
 	@Autowired
 	private CityService cityService;
-	
-	
-	// 위시리스트 리스트 + 티켓상품 + 투어상품 전체 보기 (위시리스트 첫화면) 
+
+	// 위시리스트 리스트 + 티켓상품 + 투어상품 전체 보기 (위시리스트 첫화면)
 	@LoginCheck
 	@GetMapping(value = "/wishlist")
 	public String wishlist(HttpServletRequest request, HttpSession session, Model model) {
-		
-		User loginUser = (User)session.getAttribute("loginUser");
+
+		User loginUser = (User) session.getAttribute("loginUser");
 		List<Wishlist> wishlistList = wishlistService.selectAllWithTicketAndTour(loginUser.getUserId());
-		
-//		for(Wishlist wishlist : wishlistList) {
-//			//위시리스트에 투어 이미지리스트 붙이기 
-//			int toNo=wishlist.getTour().getToNo();
-//			tourImgList=tourImgService.findTourImgList(toNo);
-//			model.addAttribute("tourImgList", tourImgList);
-//			//위시리스트에 티켓 이미지리스트 붙이기
-//			int tiNo=wishlist.getTicket().getTiNo();
-//			ticketImgList=ticketImgService.selectTicketImgList(tiNo);
-//			model.addAttribute("ticketImgList", ticketImgList);
-//		}
-//		System.out.println("요기요기요기요기요"+wishlistList.get(0).getTour().getTourImgList());
-		
-//		for (Wishlist wishlist : wishlistList) {
-//			List<TourImg> tourImgList = wishlist.getTourImgList() ;
-//			List<TicketImg> ticketImgList = wishlist.getTicketImgList();
-//			model.addAttribute("tourImgList", tourImgList);
-//			model.addAttribute("ticketImgList", ticketImgList);
-//		}
 		List<Wishlist> tourWishList = new ArrayList<Wishlist>();
 		List<Wishlist> ticketWishList = new ArrayList<Wishlist>();
 		for (Wishlist wishlist : wishlistList) {
-			if(wishlist.getTour()!=null) {
-				List<TourImg> tourImgList=tourImgService.findTourImgList(wishlist.getTour().getToNo());
+			if (wishlist.getTour() != null) {
+				List<TourImg> tourImgList = tourImgService.findTourImgList(wishlist.getTour().getToNo());
 				wishlist.setTourImgList(tourImgList);
 				// 투어가 존재하는 위시리스트들만 모음
 				tourWishList.add(wishlist);
-			} else if(wishlist.getTicket()!=null) {
-				List<TicketImg> ticketImgList=ticketImgService.selectTicketImgList(wishlist.getTicket().getTiNo());
+			} else if (wishlist.getTicket() != null) {
+				List<TicketImg> ticketImgList = ticketImgService.selectTicketImgList(wishlist.getTicket().getTiNo());
 				wishlist.setTicketImgList(ticketImgList);
 				// 티켓이 존재하는 위시리스트들만 모음
 				ticketWishList.add(wishlist);
 			}
 		}
 		try {
-		List<City> cityList=cityService.findAllCity();
+			List<City> cityList = cityService.findAllCity();
 			model.addAttribute("cityList", cityList);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -86,8 +66,8 @@ public class WishlistController {
 		model.addAttribute("tourWishList", tourWishList);
 		model.addAttribute("ticketWishList", ticketWishList);
 		model.addAttribute("loginUser", loginUser);
-	
+
 		return "wishlist";
 	}
-	
+
 }

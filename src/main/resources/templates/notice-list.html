@@ -2,33 +2,41 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Citytours - Premium site template for city tours agencies, transfers and tickets.">
-    <meta name="author" content="Ansonika">
-    <title>마이리얼코리아-공지사항</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description"
+	content="Citytours - Premium site template for city tours agencies, transfers and tickets.">
+<meta name="author" content="Ansonika">
+<title>마이리얼코리아-공지사항</title>
 
-    <!-- Favicons-->
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+<!-- Favicons-->
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" type="image/x-icon"
+	href="img/apple-touch-icon-57x57-precomposed.png">
+<link rel="apple-touch-icon" type="image/x-icon" sizes="72x72"
+	href="img/apple-touch-icon-72x72-precomposed.png">
+<link rel="apple-touch-icon" type="image/x-icon" sizes="114x114"
+	href="img/apple-touch-icon-114x114-precomposed.png">
+<link rel="apple-touch-icon" type="image/x-icon" sizes="144x144"
+	href="img/apple-touch-icon-144x144-precomposed.png">
 
-    <!-- GOOGLE WEB FONT -->
-    <link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Montserrat:300,400,700" rel="stylesheet">
+<!-- GOOGLE WEB FONT -->
+<link
+	href="https://fonts.googleapis.com/css?family=Gochi+Hand|Montserrat:300,400,700"
+	rel="stylesheet">
 
-    <!-- COMMON CSS -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-	<link href="css/vendors.css" rel="stylesheet">
-	
-	<!-- SPECIFIC CSS -->
-	<link href="css/shop.css" rel="stylesheet">
-	
-	<!-- CUSTOM CSS -->
-	<link href="css/custom.css" rel="stylesheet">
+<!-- COMMON CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href="css/vendors.css" rel="stylesheet">
+
+<!-- SPECIFIC CSS -->
+<link href="css/shop.css" rel="stylesheet">
+
+<!-- CUSTOM CSS -->
+<link href="css/custom.css" rel="stylesheet">
 
 <!-- Handlebars 
 <script  defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
@@ -45,10 +53,14 @@
 	<!--======================== End Header======================== -->
 	<!-- End Header -->
 
-	<section class="parallax-window" data-parallax="scroll" data-image-src="img/notice_list.png" data-natural-width="1400" data-natural-height="470">
+	<section class="parallax-window" data-parallax="scroll"
+		data-image-src="img/notice_list.png" data-natural-width="1400"
+		data-natural-height="470">
 		<div class="parallax-content-1">
 			<div class="animated fadeInDown">
-				<h1><a id="notice-list-main" href="notice-list">공지사항</a></h1>
+				<h1>
+					<a id="notice-list-main" href="notice-list">공지사항</a>
+				</h1>
 				<p>마이리얼코리아의 공지사항을 확인해보세요.</p>
 			</div>
 		</div>
@@ -59,8 +71,8 @@
 		<div id="position">
 			<div class="container">
 				<ul>
-					<li><i class="icon-home" onclick="location.href='index'"></i><a href="index"></a>
-					</li>
+					<li><i class="icon-home" onclick="location.href='index'"></i><a
+						href="index"></a></li>
 					<li>공지사항</li>
 				</ul>
 			</div>
@@ -70,17 +82,18 @@
 		<div class="container margin_60">
 			<div class="row">
 				<div class="col-lg-9">
-					<div class="shop-section" >
+					<div class="shop-section">
 
 						<!-- 페이지 정보 + 정렬 -->
 						<div class="items-sorting">
 							<div class="row">
 								<div class="col-6">
-									<div id="page-info" class="results_shop" >
-										<span id="cur-page" th:text="${noticeListPage.pageMaker.curPage}"></span> &nbsp;페이지 &nbsp;
-										       | 전체 건수: <span id="tot-record-count"   th:text="${noticeListPage.pageMaker.totCount}"></span>
-										<br>
-										
+									<div id="page-info" class="results_shop">
+										<span id="cur-page"
+											th:text="${noticeListPage.pageMaker.curPage}"></span>
+										&nbsp;페이지 &nbsp; | 전체 건수: <span id="tot-record-count"
+											th:text="${noticeListPage.pageMaker.totCount}"></span> <br>
+
 									</div>
 								</div>
 								<div class="col-6">
@@ -97,24 +110,31 @@
 						</div>
 						<!-- 페이지 정보 + 정렬 끝-->
 						<!--End Sort By-->
-						
-						<div class="row" id="notice-list" >
 
-							<div class="shop-item col-lg-6 col-md-6 col-sm-6" id="notice-list-items" th:each="notice:${noticeList}">
+						<div class="row" id="notice-list">
+
+							<div class="shop-item col-lg-6 col-md-6 col-sm-6"
+								id="notice-list-items" th:each="notice:${noticeList}">
 								<div class="inner-box notice-box">
 									<div class="image-box">
 										<figure class="image">
-											<a th:href="@{notice-detail(nNo=${notice.nNo})}" href="shop-single.html">
+											<a th:href="@{notice-detail(nNo=${notice.nNo})}"
+												href="shop-single.html">
 										</figure>
 									</div>
 									<div class="product_description" id="notice-list-item">
-										<h3><a th:text="${notice.nTitle}" th:href="@{notice-detail(nNo=${notice.nNo})}" href="" >Travel Book</a></h3>
+										<h3>
+											<a th:text="${notice.nTitle}"
+												th:href="@{notice-detail(nNo=${notice.nNo})}" href="">Travel
+												Book</a>
+										</h3>
 										<div class="price">
-											<span class="notice_readcount" th:text="${#dates.format(notice.nDate, 'yyyy.MM.dd')}">$20.00</span> 
+											<span class="notice_readcount"
+												th:text="${#dates.format(notice.nDate, 'yyyy.MM.dd')}">$20.00</span>
 										</div>
 										<div class="item-options clearfix">
-											<span class="icon-eye">조회수</span>
-											<span th:text=${notice.nReadcount}>$15.00</span>
+											<span class="icon-eye">조회수</span> <span
+												th:text=${notice.nReadcount}>$15.00</span>
 										</div>
 									</div>
 								</div>
@@ -124,36 +144,37 @@
 
 						<hr>
 						<!-- Pagination ~!!!! -->
-						<nav aria-label="Page navigation" >
+						<nav aria-label="Page navigation">
 							<ul class="pagination justify-content-center" id="notice-paging">
 								<!-- 이전 블록으로 이동 -->
-								<li class="page-item">
-									<a class="page-link" th:href="@{notice-list(pageNo=${noticeListPage.pageMaker.prevGroupStartPage})}"  href="#" aria-label="Previous">
-										<span aria-hidden="true">&laquo;</span>
+								<li class="page-item"><a class="page-link"
+									th:href="@{notice-list(pageNo=${noticeListPage.pageMaker.prevGroupStartPage})}"
+									href="#" aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 										<span class="sr-only">Previous</span>
-									</a>
-								</li>
-								<th:block th:each="num : ${#numbers.sequence(noticeListPage.pageMaker.blockBegin, noticeListPage.pageMaker.blockEnd)}">
+								</a></li>
+								<th:block
+									th:each="num : ${#numbers.sequence(noticeListPage.pageMaker.blockBegin, noticeListPage.pageMaker.blockEnd)}">
 									<th:block th:if="${num le noticeListPage.pageMaker.totPage}">
-									 <li class="page-item" th:classappend="${noticeListPage.pageMaker.curPage == num} ? 'active'">
-									    <a class="page-link" id="page-no" th:href="@{notice-list(pageNo=${num})}">
-									      <span th:text="${num}"></span>
-									    </a>
-									 </li>
-									 </th:block>
+										<li class="page-item"
+											th:classappend="${noticeListPage.pageMaker.curPage == num} ? 'active'">
+											<a class="page-link" id="page-no"
+											th:href="@{notice-list(pageNo=${num})}"> <span
+												th:text="${num}"></span>
+										</a>
+										</li>
+									</th:block>
 								</th:block>
 								<!-- 다음 블록으로 이동 -->
-								<li class="page-item">
-									<a class="page-link" th:href="@{notice-list(pageNo=${noticeListPage.pageMaker.nextGroupStartPage})}"   href="#" aria-label="Next">
-										<span aria-hidden="true">&raquo;</span>
+								<li class="page-item"><a class="page-link"
+									th:href="@{notice-list(pageNo=${noticeListPage.pageMaker.nextGroupStartPage})}"
+									href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 										<span class="sr-only">Next</span>
-									</a>
-								</li>
+								</a></li>
 							</ul>
 						</nav>
 						<!-- end pagination-->
-						
-					<!-- End row -->
+
+						<!-- End row -->
 					</div>
 					<!-- End shop selection -->
 				</div>
@@ -164,10 +185,14 @@
 					<aside class="sidebar">
 						<div class="widget">
 							<div class="input-group">
-								<input id="notice-search-keyword" type="text" class="form-control" placeholder="검색">
-								<span id="notice-search-btn"  class="input-group-btn">
-		                        <button class="btn btn-default" type="button" style="margin-left:0;"><i class="icon-search"></i></button>
-		                        </span>
+								<input id="notice-search-keyword" type="text"
+									class="form-control" placeholder="검색"> <span
+									id="notice-search-btn" class="input-group-btn">
+									<button class="btn btn-default" type="button"
+										style="margin-left: 0;">
+										<i class="icon-search"></i>
+									</button>
+								</span>
 							</div>
 						</div>
 						<!-- End Search -->
@@ -175,29 +200,26 @@
 						<div class="widget category" id="cat_shop">
 							<h4>Categories</h4>
 							<ul>
-								<li><a href="tour-list">투어 상품</a>
-								</li>
-								<li><a href="ticket-list">티켓 상품</a>
-								</li>
-								<li><a href="tripboard-list">동행 찾기</a>
-								</li>
-								<li><a href="freeboard-list">자유게시판</a>
-								</li>
+								<li><a href="tour-list">투어 상품</a></li>
+								<li><a href="ticket-list">티켓 상품</a></li>
+								<li><a href="tripboard-list">동행 찾기</a></li>
+								<li><a href="freeboard-list">자유게시판</a></li>
 							</ul>
 						</div>
 						<!-- End widget -->
 						<hr>
-						<div th:if="${loginUser != null && loginUser.userId == 'admin'}" id="notice-write-wrap">
-						<a class="btn_1" th:href=@{notice-write-form} role="button">공지사항 글쓰기</a>
+						<div th:if="${loginUser != null && loginUser.userId == 'admin'}"
+							id="notice-write-wrap">
+							<a class="btn_1" th:href=@{notice-write-form} role="button">공지사항
+								글쓰기</a>
 						</div>
 						<br>
-											<div class="box_style_2">
-						<i class="icon_set_1_icon-57"></i>
-						<br>
-						<h6>도움이 필요하신가요?</h6>
-						<a href="tel://004542344599" class="phone">+82 423 445 99</a>
-						<small>월 ~ 금 9.00am - 7.30pm</small>
-					</div>
+						<div class="box_style_2">
+							<i class="icon_set_1_icon-57"></i> <br>
+							<h6>도움이 필요하신가요?</h6>
+							<a href="tel://004542344599" class="phone">+82 423 445 99</a> <small>월
+								~ 금 9.00am - 7.30pm</small>
+						</div>
 					</aside>
 				</div>
 				<!--Sidebar-->
@@ -209,27 +231,33 @@
 	<!-- End main -->
 	<!--========================= footer ========================-->
 	<footer class="revealed">
-		<div id="footer" th:include="include-common-bottom::include-common-bottom"></div>
+		<div id="footer"
+			th:include="include-common-bottom::include-common-bottom"></div>
 	</footer>
-		<!-- End container -->
+	<!-- End container -->
 	<!--========================= End footer ========================-->
 
-	<div id="toTop"></div><!-- Back to top button -->
-	
+	<div id="toTop"></div>
+	<!-- Back to top button -->
+
 	<!-- Search Menu -->
 	<div class="search-overlay-menu">
-		<span class="search-overlay-close"><i class="icon_set_1_icon-77"></i></span>
+		<span class="search-overlay-close"><i
+			class="icon_set_1_icon-77"></i></span>
 		<form role="search" id="searchform" method="get">
 			<input value="" name="q" type="search" placeholder="Search..." />
-			<button type="submit"><i class="icon_set_1_icon-78"></i>
+			<button type="submit">
+				<i class="icon_set_1_icon-78"></i>
 			</button>
 		</form>
-	</div><!-- End Search Menu -->
-	
+	</div>
+	<!-- End Search Menu -->
+
 	<!-- ##################### template ###################### -->
 	<!-- <script> 태그에 코드 적으면 화면에 안 보임 -->
 	<!-- notice-search-list-template -->
-	<script id="notice-search-list-template" type="text/x-handlebars-template">
+	<script id="notice-search-list-template"
+		type="text/x-handlebars-template">
 	{{#each data.itemList}}
 	<div class="shop-item col-lg-6 col-md-6 col-sm-6" id="notice-list-items" >
 	<div class="inner-box notice-box">
@@ -252,9 +280,9 @@
 	</div>
 	{{/each}}
 	</script>
-	
-<!-- pagination-->
-<script id="notice-paging-template" type="text/x-handlebars-template">
+
+	<!-- pagination-->
+	<script id="notice-paging-template" type="text/x-handlebars-template">
     <ul class="pagination justify-content-center">
         <!-- 이전 블록으로 이동 -->
         <li class="page-item" id="blockEnd" value={{data.pageMaker.blockEnd}}>
@@ -285,33 +313,35 @@
 </script>
 
 
-<!-- end pagination-->
+	<!-- end pagination-->
 
 	<!--  handlebars  -->
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
 	<!-- Common scripts -->
 	<script src="js/jquery-2.2.4.min.js"></script>
 	<script src="js/common_scripts_min.js"></script>
 	<script src="js/functions.js"></script>
 	<script src="js/app.js" type="module"></script>
-	
+
 	<script type="text/javascript">
-	Handlebars.registerHelper('numbers', function(start, end, options) {
-	  var ret = '';
-	  for (var i = start; i <= end; i++) {
-	    ret += options.fn(i);
-	  }
-	  return ret;
-	});
-	
-	Handlebars.registerHelper('eq', function (a, b, options) {
-	    if (a == b) { return options.fn(this); }
-	    return options.inverse(this);
-	});
-	
+		Handlebars.registerHelper('numbers', function(start, end, options) {
+			var ret = '';
+			for (var i = start; i <= end; i++) {
+				ret += options.fn(i);
+			}
+			return ret;
+		});
+
+		Handlebars.registerHelper('eq', function(a, b, options) {
+			if (a == b) {
+				return options.fn(this);
+			}
+			return options.inverse(this);
+		});
 	</script>
-	
-	
+
+
 
 </body>
 

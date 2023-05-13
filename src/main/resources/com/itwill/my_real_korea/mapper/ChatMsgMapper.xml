@@ -2,59 +2,70 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itwill.my_real_korea.mapper.ChatMsgMapper">
 
-<select id="selectChatByRoomName" parameterType="String" resultType="com.itwill.my_real_korea.dto.chat.ChatMsg">
-	select * from chat_msg where room_name=#{roomName} order by msg_no
-</select>
+	<select id="selectChatByRoomName" parameterType="String"
+		resultType="com.itwill.my_real_korea.dto.chat.ChatMsg">
+		select * from chat_msg where room_name=#{roomName} order by msg_no
+	</select>
 
-<select id="selectByMsgNo" parameterType="java.lang.Integer" resultType="com.itwill.my_real_korea.dto.chat.ChatMsg">
-	select * from chat_msg where msg_no=#{msgNo}
-</select>
+	<select id="selectByMsgNo" parameterType="java.lang.Integer"
+		resultType="com.itwill.my_real_korea.dto.chat.ChatMsg">
+		select * from chat_msg where msg_no=#{msgNo}
+	</select>
 
-<select id="selectNotReadMsg" parameterType="java.util.Map" resultType="com.itwill.my_real_korea.dto.chat.ChatMsg">
-	select * from chat_msg where room_no=#{roomNo} and msg_read=0 and user_id!=#{userId}
-</select>
+	<select id="selectNotReadMsg" parameterType="java.util.Map"
+		resultType="com.itwill.my_real_korea.dto.chat.ChatMsg">
+		select * from chat_msg where room_no=#{roomNo} and msg_read=0 and
+		user_id!=#{userId}
+	</select>
 
-<select id="countNotReadMsg" parameterType="java.util.Map" resultType="java.lang.Integer">
-	select count(*) from chat_msg where room_no=#{roomNo} and msg_read=0 and user_id!=#{userId}
-</select>
+	<select id="countNotReadMsg" parameterType="java.util.Map"
+		resultType="java.lang.Integer">
+		select count(*) from chat_msg where room_no=#{roomNo} and msg_read=0 and
+		user_id!=#{userId}
+	</select>
 
-<select id="selectAllNotReadMsg" parameterType="String" resultType="com.itwill.my_real_korea.dto.chat.ChatMsg">
-	select * from (select * from chat_msg 
-                        where room_no in
-                            (select room_no from chat_room c
-                            where from_id=#{userId} or to_id=#{userId})
-                    ) cr
-	where cr.msg_read=0 and cr.user_id!=#{userId}
-</select>
+	<select id="selectAllNotReadMsg" parameterType="String"
+		resultType="com.itwill.my_real_korea.dto.chat.ChatMsg">
+		select * from (select * from chat_msg
+		where room_no in
+		(select room_no from chat_room c
+		where from_id=#{userId} or to_id=#{userId})
+		) cr
+		where cr.msg_read=0 and cr.user_id!=#{userId}
+	</select>
 
-<select id="countAllNotReadMsg" parameterType="String" resultType="java.lang.Integer">
-	select count(*) from (select * from chat_msg 
-                        where room_no in
-                            (select room_no from chat_room c
-                            where from_id=#{userId} or to_id=#{userId})
-                    ) cr
-	where cr.msg_read=0 and cr.user_id!=#{userId}
-</select>
+	<select id="countAllNotReadMsg" parameterType="String"
+		resultType="java.lang.Integer">
+		select count(*) from (select * from chat_msg
+		where room_no in
+		(select room_no from chat_room c
+		where from_id=#{userId} or to_id=#{userId})
+		) cr
+		where cr.msg_read=0 and cr.user_id!=#{userId}
+	</select>
 
-<update id="updateReadMsg" parameterType="java.util.Map">
-	update chat_msg set msg_read=1 where room_no=#{roomNo} and user_id=#{userId}
-</update>
+	<update id="updateReadMsg" parameterType="java.util.Map">
+		update chat_msg set msg_read=1 where room_no=#{roomNo} and user_id=#{userId}
+	</update>
 
-<delete id="deleteChatMsg" parameterType="java.lang.Integer">
-	delete chat_msg where msg_no=#{msgNo}
-</delete>
+	<delete id="deleteChatMsg" parameterType="java.lang.Integer">
+		delete chat_msg where msg_no=#{msgNo}
+	</delete>
 
-<update id="updateDeletedMsg" parameterType="java.lang.Integer">
-	update chat_msg set msg_content='삭제된 메세지입니다.' where msg_no=#{msgNo}
-</update>
+	<update id="updateDeletedMsg" parameterType="java.lang.Integer">
+		update chat_msg set msg_content='삭제된 메세지입니다.' where msg_no=#{msgNo}
+	</update>
 
-<insert id="insertChatMsg" parameterType="com.itwill.my_real_korea.dto.chat.ChatMsg">
-	<selectKey resultType="java.lang.Integer" keyProperty="msgNo" order="BEFORE">
-		select chat_msg_msg_no_seq.nextval from dual
-	</selectKey>
-	insert into chat_msg(msg_no,msg_content,msg_send_time,msg_read,room_name,user_id) 
-	values(#{msgNo},#{msgContent},#{msgSendTime},#{msgRead},#{roomName},#{userId})
-</insert>
+	<insert id="insertChatMsg"
+		parameterType="com.itwill.my_real_korea.dto.chat.ChatMsg">
+		<selectKey resultType="java.lang.Integer"
+			keyProperty="msgNo" order="BEFORE">
+			select chat_msg_msg_no_seq.nextval from dual
+		</selectKey>
+		insert into
+		chat_msg(msg_no,msg_content,msg_send_time,msg_read,room_name,user_id)
+		values(#{msgNo},#{msgContent},#{msgSendTime},#{msgRead},#{roomName},#{userId})
+	</insert>
 
 
 

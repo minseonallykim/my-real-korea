@@ -30,7 +30,6 @@ import com.itwill.my_real_korea.util.PageMakerDto;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 
-
 @Controller
 public class NoticeController {
 
@@ -39,16 +38,16 @@ public class NoticeController {
 
 	@Autowired
 	private CityService cityService;
-	
+
 	// 공지사항 리스트 보기 (공지사항 첫 화면)
 	@GetMapping(value = "/notice-list")
-	public String notice_list(@RequestParam(required = false, defaultValue = "1") int pageNo,
-								Model model, HttpSession session) {
-		
+	public String notice_list(@RequestParam(required = false, defaultValue = "1") int pageNo, Model model,
+			HttpSession session) {
+
 		try {
-			if(session != null) {
-				User loginUser = (User)session.getAttribute("loginUser");
-				model.addAttribute("loginUser",loginUser);
+			if (session != null) {
+				User loginUser = (User) session.getAttribute("loginUser");
+				model.addAttribute("loginUser", loginUser);
 			}
 			PageMakerDto<Notice> noticeListPage = noticeService.selectAll(pageNo);
 			System.out.println(noticeListPage.getPageMaker().getCurPage());
@@ -56,7 +55,7 @@ public class NoticeController {
 			model.addAttribute("noticeListPage", noticeListPage);
 			model.addAttribute("noticeList", noticeList);
 			model.addAttribute("pageNo", pageNo);
-			
+
 			List<City> cityList = cityService.findAllCity();
 			model.addAttribute("cityList", cityList);
 		} catch (Exception e) {
@@ -65,15 +64,15 @@ public class NoticeController {
 		}
 		return "notice-list";
 	}
-	
+
 	// 공지사항 1개 보기
 	@GetMapping(value = "/notice-detail")
 	public String notice_detail(@RequestParam int nNo, Model model, HttpSession session) throws Exception {
-		
+
 		try {
-			if(session != null) {
-				User loginUser = (User)session.getAttribute("loginUser");
-				model.addAttribute("loginUser",loginUser);
+			if (session != null) {
+				User loginUser = (User) session.getAttribute("loginUser");
+				model.addAttribute("loginUser", loginUser);
 			}
 			Notice notice = noticeService.selectByNo(nNo);
 			noticeService.increaseReadCount(nNo);
@@ -87,48 +86,25 @@ public class NoticeController {
 		}
 		return "notice-detail";
 	}
-	
+
 	// 공지사항 작성 폼
-	@AdminCheck 
+	@AdminCheck
 	@LoginCheck
 	@GetMapping("/notice-write-form")
 	public String notice_write_form(HttpSession session, Model model) {
-		User loginUser = (User)session.getAttribute("loginUser");
+		User loginUser = (User) session.getAttribute("loginUser");
 		model.addAttribute("loginUser", loginUser);
-		
+
 		return "notice-write-form";
 	}
-	
-	/*공지사항 글쓰기
-	@AdminCheck
-	@LoginCheck
-	@PostMapping("/notice-write-action")
-	public String notice_write_action(HttpServletRequest request, 
-									@ModelAttribute("addedNotice") Notice notice,
-									RedirectAttributes redirectAttributes) {
 
-		// Referer : HTTP 요청 헤더의 일종으로, 요청 보낸 페이지의 URL 의미
-		String requestUrl = request.getHeader("Referer");
-		// session 에 요청 보낸 페이지의 URL 저장(관리자 아닐 경우 이전 페이지로 돌려보내기 위해)
-		request.getSession().setAttribute("requestUrl", requestUrl);
-		try {
- 			noticeService.insertNotice(notice);
-			redirectAttributes.addFlashAttribute("notice", notice);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return "notice-list";					
-		} 
-		return "redirect:notice-detail?nNo="+notice.getNNo();
-	}
-	*/
-	
 	// 공지사항 수정 폼
-	@AdminCheck 
+	@AdminCheck
 	@LoginCheck
 	@GetMapping("/notice-modify-form")
 	public String notice_modify_form(@RequestParam int nNo, Model model, HttpSession session) {
 		try {
-			User loginUser = (User)session.getAttribute("loginUser");
+			User loginUser = (User) session.getAttribute("loginUser");
 			Notice notice = noticeService.selectByNo(nNo);
 			model.addAttribute("notice", notice);
 			model.addAttribute("loginUser", loginUser);
@@ -138,5 +114,4 @@ public class NoticeController {
 		}
 		return "notice-modify-form";
 	}
-	
 }

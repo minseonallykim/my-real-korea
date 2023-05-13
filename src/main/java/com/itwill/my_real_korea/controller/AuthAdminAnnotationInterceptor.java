@@ -13,7 +13,9 @@ import com.itwill.my_real_korea.exception.IsNotAdminException;
 import com.itwill.my_real_korea.service.user.UserService;
 
 import ch.qos.logback.core.joran.conditional.IfAction;
-
+/*
+ * 관리자 체크하는 interceptor
+ */
 public class AuthAdminAnnotationInterceptor implements HandlerInterceptor {
 	public AuthAdminAnnotationInterceptor() {
 	}

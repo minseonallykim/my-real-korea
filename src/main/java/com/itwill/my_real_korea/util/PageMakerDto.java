@@ -10,7 +10,6 @@ import lombok.ToString;
 /*
  * 페이징 처리 필요한 곳에서 공용으로 사용하는 PageMakerDto
  */
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

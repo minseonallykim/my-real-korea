@@ -2,34 +2,43 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Citytours - Premium site template for city tours agencies, transfers and tickets.">
-    <meta name="author" content="Ansonika">
-    <title>마이리얼코리아-위시리스트</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description"
+	content="Citytours - Premium site template for city tours agencies, transfers and tickets.">
+<meta name="author" content="Ansonika">
+<title>마이리얼코리아-위시리스트</title>
 
-    <!-- Favicons-->
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+<!-- Favicons-->
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" type="image/x-icon"
+	href="img/apple-touch-icon-57x57-precomposed.png">
+<link rel="apple-touch-icon" type="image/x-icon" sizes="72x72"
+	href="img/apple-touch-icon-72x72-precomposed.png">
+<link rel="apple-touch-icon" type="image/x-icon" sizes="114x114"
+	href="img/apple-touch-icon-114x114-precomposed.png">
+<link rel="apple-touch-icon" type="image/x-icon" sizes="144x144"
+	href="img/apple-touch-icon-144x144-precomposed.png">
 
-    <!-- GOOGLE WEB FONT -->
-    <link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Montserrat:300,400,700" rel="stylesheet">
+<!-- GOOGLE WEB FONT -->
+<link
+	href="https://fonts.googleapis.com/css?family=Gochi+Hand|Montserrat:300,400,700"
+	rel="stylesheet">
 
-    <!-- COMMON CSS -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-	<link href="css/vendors.css" rel="stylesheet">
-	
-	<!-- CUSTOM CSS -->
-	<link href="css/custom.css" rel="stylesheet">
-	
-	<!-- Handlebars -->
-	<script  defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
-	
+<!-- COMMON CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href="css/vendors.css" rel="stylesheet">
+
+<!-- CUSTOM CSS -->
+<link href="css/custom.css" rel="stylesheet">
+
+<!-- Handlebars -->
+<script defer type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
+
 </head>
 
 <body>
@@ -41,10 +50,14 @@
 	<div id="header" th:include="include-common-top::include-common-top"></div>
 	<!--======================== End Header======================== -->
 
-	<section class="parallax-window" data-parallax="scroll" data-image-src="img/wishlist/wishlist_main.jpg" data-natural-width="1400" data-natural-height="470">
+	<section class="parallax-window" data-parallax="scroll"
+		data-image-src="img/wishlist/wishlist_main.jpg"
+		data-natural-width="1400" data-natural-height="470">
 		<div class="parallax-content-1">
 			<div class="animated fadeInDown">
-				<h1><a id="wishlist-main" href="wishlist">위시리스트</a></h1>
+				<h1>
+					<a id="wishlist-main" href="wishlist">위시리스트</a>
+				</h1>
 				<p>위시리스트를 확인해보세요.</p>
 			</div>
 		</div>
@@ -55,8 +68,8 @@
 		<div id="position">
 			<div class="container">
 				<ul>
-					<li><i class="icon-home" onclick="location.href='index'"></i><a href="index"></a>
-					</li>
+					<li><i class="icon-home" onclick="location.href='index'"></i><a
+						href="index"></a></li>
 					<li>위시리스트</li>
 				</ul>
 			</div>
@@ -72,61 +85,69 @@
 
 			<div class="row">
 				<aside class="col-lg-3">
-					
+
 					<div id="filters_col_wishlist">
 						<div class="collapse show" id="collapseFilters">
-						<div class="filter_type">
-						<div class="widget category" id="cat_shop">
-							<h4>TYPE</h4>
-							<p></p>
-							<ul>
-								<li><a href="" id="type-tour">투어</a>
-								<input type="hidden" id="wishlist-id" th:value=${loginUser.userId}>
-								</li><hr>
-								<li><a href="" id="type-ticket">티켓</a>
-								<input type="hidden" id="wishlist-id" th:value=${loginUser.userId}>
-								</li><hr>
-								<li><a href="wishlist" >전체보기</a>
-								</li>
-							</ul>
-						</div>
-						
-						</div>
-						
+							<div class="filter_type">
+								<div class="widget category" id="cat_shop">
+									<h4>TYPE</h4>
+									<p></p>
+									<ul>
+										<li><a href="" id="type-tour">투어</a> <input type="hidden"
+											id="wishlist-id" th:value=${loginUser.userId}></li>
+										<hr>
+										<li><a href="" id="type-ticket">티켓</a> <input
+											type="hidden" id="wishlist-id" th:value=${loginUser.userId}>
+										</li>
+										<hr>
+										<li><a href="wishlist">전체보기</a></li>
+									</ul>
+								</div>
+
+							</div>
+
 						</div>
 						<!--End collapse -->
 					</div>
 					<!--End filters col-->
-					
-					<div th:if="${wishlistList.size() != 0}" >
-						<p id="wishlist-all-delete"><a href="" class="btn_1" id="wishlist-all-delete-action-btn">위시리스트 전체삭제</a></p>
-						<input type="hidden" id="wishlist-all-delete-userId" th:value="${loginUser.userId}">
+
+					<div th:if="${wishlistList.size() != 0}">
+						<p id="wishlist-all-delete">
+							<a href="" class="btn_1" id="wishlist-all-delete-action-btn">위시리스트
+								전체삭제</a>
+						</p>
+						<input type="hidden" id="wishlist-all-delete-userId"
+							th:value="${loginUser.userId}">
 					</div>
-					
-										<div class="box_style_2">
-						<i class="icon_set_1_icon-57"></i>
-						<br>
+
+					<div class="box_style_2">
+						<i class="icon_set_1_icon-57"></i> <br>
 						<h6>도움이 필요하신가요?</h6>
-						<a href="tel://8242344599" class="phone">+82 423 445 99</a>
-						<small>월 ~ 금 9.00am - 7.30pm</small>
+						<a href="tel://8242344599" class="phone">+82 423 445 99</a> <small>월
+							~ 금 9.00am - 7.30pm</small>
 					</div>
 				</aside>
 				<!--End aside -->
 				<div class="col-lg-9" id="wishlist-list">
-					
+
 					<!--/tools -->
 
-					<div  class="strip_all_tour_list wow fadeIn"  th:each="wishlist:${wishlistList}" data-wow-delay="0.1s" >
-						<div class="row" >
+					<div class="strip_all_tour_list wow fadeIn"
+						th:each="wishlist:${wishlistList}" data-wow-delay="0.1s">
+						<div class="row">
 							<div class="col-lg-4 col-md-4">
 								<div th:if="${wishlist.tour != null}" class="img_list">
 									<a th:href="@{tour-detail(toNo=${wishlist.tour.toNo})}" href="">
-										<img th:src="@{img/tour/{toImgUrl}(toImgUrl=${wishlist.tourImgList.get(0).toImgUrl})}" alt="Image">
+										<img
+										th:src="@{img/tour/{toImgUrl}(toImgUrl=${wishlist.tourImgList.get(0).toImgUrl})}"
+										alt="Image">
 									</a>
 								</div>
 								<div th:if="${wishlist.ticket != null}" class="img_list">
-									<a th:href="@{ticket-detail(tiNo=${wishlist.ticket.tiNo})}" href="">
-										<img th:src="@{{tiImgUrl}(tiImgUrl=${wishlist.ticketImgList.get(0).tiImgUrl})}" alt="Image">
+									<a th:href="@{ticket-detail(tiNo=${wishlist.ticket.tiNo})}"
+										href=""> <img
+										th:src="@{{tiImgUrl}(tiImgUrl=${wishlist.ticketImgList.get(0).tiImgUrl})}"
+										alt="Image">
 									</a>
 								</div>
 							</div>
@@ -134,53 +155,63 @@
 								<div class="tour_list_desc">
 									<div class="rating" id="rating_blank"></div>
 									<div id="wishlist_name" th:if="${wishlist.tour != null}">
-									<h3><strong  th:text="${wishlist.tour.toName}"></strong> </h3>
+										<h3>
+											<strong th:text="${wishlist.tour.toName}"></strong>
+										</h3>
 									</div>
 									<div id="wishlist_name" th:if="${wishlist.ticket != null}">
-									<h3 ><strong th:text="${wishlist.ticket.tiTitle}"></strong> </h3>
+										<h3>
+											<strong th:text="${wishlist.ticket.tiTitle}"></strong>
+										</h3>
 									</div>
 									<ul class="add_info">
 										<th:block th:if="${wishlist.tour != null}">
-										<li>
-											<div class="tooltip_styled tooltip-effect-4">
-												<span class="tooltip-item"><i class="icon_set_1_icon-83"></i></span>
-												<div class="tooltip-content">
-													<h4>투어 안내사항</h4>
-													<p th:text="${wishlist.tour.toNotice}"> </p>
+											<li>
+												<div class="tooltip_styled tooltip-effect-4">
+													<span class="tooltip-item"><i
+														class="icon_set_1_icon-83"></i></span>
+													<div class="tooltip-content">
+														<h4>투어 안내사항</h4>
+														<p th:text="${wishlist.tour.toNotice}"></p>
+													</div>
 												</div>
-											</div>
-										</li>
-										<li>
-											<div class="tooltip_styled tooltip-effect-4">
-												<span class="tooltip-item"><i class="icon_set_1_icon-41"></i></span>
-												<div class="tooltip-content">
-													<h4>만나는 장소</h4> 
-													<p th:text="${wishlist.tour.toMeet}"> </p>
-													<br>
+											</li>
+											<li>
+												<div class="tooltip_styled tooltip-effect-4">
+													<span class="tooltip-item"><i
+														class="icon_set_1_icon-41"></i></span>
+													<div class="tooltip-content">
+														<h4>만나는 장소</h4>
+														<p th:text="${wishlist.tour.toMeet}"></p>
+														<br>
+													</div>
 												</div>
-											</div>
-										</li>
+											</li>
 										</th:block>
 										<th:block th:if="${wishlist.ticket != null}">
-										<li>
-											<div class="tooltip_styled tooltip-effect-4">
-												<span class="tooltip-item"><i class="icon_set_1_icon-83"></i></span>
-												<div class="tooltip-content">
-													<h4>티켓 날짜</h4>
-													<p th:text="${#dates.format(wishlist.ticket.tiDate, 'yyyy.MM.dd')}"> </p>
+											<li>
+												<div class="tooltip_styled tooltip-effect-4">
+													<span class="tooltip-item"><i
+														class="icon_set_1_icon-83"></i></span>
+													<div class="tooltip-content">
+														<h4>티켓 날짜</h4>
+														<p
+															th:text="${#dates.format(wishlist.ticket.tiDate, 'yyyy.MM.dd')}">
+														</p>
+													</div>
 												</div>
-											</div>
-										</li>
-										<li>
-											<div class="tooltip_styled tooltip-effect-4">
-												<span class="tooltip-item"><i class="icon_set_1_icon-41"></i></span>
-												<div class="tooltip-content">
-													<h4>티켓 안내사항</h4> 
-													<p th:text="${wishlist.ticket.tiNotice}"> </p>
-													<br>
+											</li>
+											<li>
+												<div class="tooltip_styled tooltip-effect-4">
+													<span class="tooltip-item"><i
+														class="icon_set_1_icon-41"></i></span>
+													<div class="tooltip-content">
+														<h4>티켓 안내사항</h4>
+														<p th:text="${wishlist.ticket.tiNotice}"></p>
+														<br>
+													</div>
 												</div>
-											</div>
-										</li>
+											</li>
 										</th:block>
 									</ul>
 								</div>
@@ -188,65 +219,84 @@
 							<div class="col-lg-2 col-md-2">
 								<div class="price_list" id="wishlist-detail-btn">
 									<div th:if="${wishlist.tour != null}">
-										<div><sup th:text="${wishlist.tour.toPrice}"></sup>
-												<small>* 1인 기준</small>
-											<p><a th:href="@{tour-detail(toNo=${wishlist.tour.toNo})}" href="" class="btn_1">상세보기</a></p>
-											<a href="#"><i class="icon-trash" id="wishlist-delete-action-btn" th:data-wishNo="${wishlist.wishNo}"></i></a>
-											<input type="hidden" id="wishlist-userId" th:value="${wishlist.userId}">
+										<div>
+											<sup th:text="${wishlist.tour.toPrice}"></sup> <small>*
+												1인 기준</small>
+											<p>
+												<a th:href="@{tour-detail(toNo=${wishlist.tour.toNo})}"
+													href="" class="btn_1">상세보기</a>
+											</p>
+											<a href="#"><i class="icon-trash"
+												id="wishlist-delete-action-btn"
+												th:data-wishNo="${wishlist.wishNo}"></i></a> <input
+												type="hidden" id="wishlist-userId"
+												th:value="${wishlist.userId}">
 										</div>
 									</div>
 									<div th:if="${wishlist.ticket != null}">
-										<div><sup th:text="${wishlist.ticket.tiPrice}"></sup><small>* 1인 기준</small>
-											<p><a th:href="@{ticket-detail(tiNo=${wishlist.ticket.tiNo})}" href="" class="btn_1">상세보기</a></p>
-											<a href="#">
-												<i class="icon-trash" id="wishlist-delete-action-btn" th:data-wishNo="${wishlist.wishNo}"></i></a>
-											<input type="hidden" id="wishlist-userId" th:value="${wishlist.userId}">
+										<div>
+											<sup th:text="${wishlist.ticket.tiPrice}"></sup><small>*
+												1인 기준</small>
+											<p>
+												<a th:href="@{ticket-detail(tiNo=${wishlist.ticket.tiNo})}"
+													href="" class="btn_1">상세보기</a>
+											</p>
+											<a href="#"> <i class="icon-trash"
+												id="wishlist-delete-action-btn"
+												th:data-wishNo="${wishlist.wishNo}"></i></a> <input
+												type="hidden" id="wishlist-userId"
+												th:value="${wishlist.userId}">
 										</div>
 									</div>
+								</div>
 							</div>
 						</div>
 					</div>
-					</div>
-					
+
 					<div th:if="${wishlistList.size() == 0}">
-					 <p> 위시리스트가 비었습니다.</p>
+						<p>위시리스트가 비었습니다.</p>
 					</div>
-					
+
 					<!-- End col lg-9 -->
 					<!--End strip -->
 					<hr>
 
+				</div>
+				<!-- End row -->
 			</div>
-			<!-- End row -->
-		</div>
-		<!-- End container -->
+			<!-- End container -->
 		</div>
 	</main>
 	<!-- End main -->
 
 	<!--========================= footer ========================-->
 	<footer class="revealed">
-		<div id="footer" th:include="include-common-bottom::include-common-bottom"></div>
+		<div id="footer"
+			th:include="include-common-bottom::include-common-bottom"></div>
 	</footer>
-		<!-- End container -->
+	<!-- End container -->
 	<!--========================= End footer ========================-->
 
-	<div id="toTop"></div><!-- Back to top button -->
-	
+	<div id="toTop"></div>
+	<!-- Back to top button -->
+
 	<!-- Search Menu -->
 	<div class="search-overlay-menu">
-		<span class="search-overlay-close"><i class="icon_set_1_icon-77"></i></span>
+		<span class="search-overlay-close"><i
+			class="icon_set_1_icon-77"></i></span>
 		<form role="search" id="searchform" method="get">
 			<input value="" name="q" type="search" placeholder="Search..." />
-			<button type="submit"><i class="icon_set_1_icon-78"></i>
+			<button type="submit">
+				<i class="icon_set_1_icon-78"></i>
 			</button>
 		</form>
-	</div><!-- End Search Menu -->
-	
+	</div>
+	<!-- End Search Menu -->
+
 	<!-- Sign In Popup -->
 	<!-- /Sign In Popup -->
-<!--  ####################### template ############################ -->
-<script id="wishlist-tour-template" type="text/x-handlebars-template">
+	<!--  ####################### template ############################ -->
+	<script id="wishlist-tour-template" type="text/x-handlebars-template">
 {{#each data}}
 <div class="strip_all_tour_list wow fadeIn" data-wow-delay="0.1s" >
 <div class="row">
@@ -305,7 +355,7 @@
 {{/each}}
 </script>
 
-<script id="wishlist-ticket-template" type="text/x-handlebars-template">
+	<script id="wishlist-ticket-template" type="text/x-handlebars-template">
 {{#each data}}
 <div class="strip_all_tour_list wow fadeIn" data-wow-delay="0.1s" >
 <div class="row">
@@ -388,7 +438,7 @@
 			$(this).parent().parent().fadeOut('slow', function (c) {});
 		});
 	</script>
-	
+
 	<!-- Check box and radio style iCheck -->
 	<script>
 		$('input').iCheck({
@@ -396,9 +446,7 @@
 		   radioClass: 'iradio_square-grey'
 		 });
 	</script>
-	
 
-	
 </body>
 
 </html>

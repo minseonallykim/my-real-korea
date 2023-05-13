@@ -2,37 +2,45 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<meta name="description" content="Citytours - Premium site template for city tours agencies, transfers and tickets.">
-	<meta name="author" content="Ansonika">
-	<title>마이리얼코리아-공지사항 작성</title>
+<meta name="description"
+	content="Citytours - Premium site template for city tours agencies, transfers and tickets.">
+<meta name="author" content="Ansonika">
+<title>마이리얼코리아-공지사항 작성</title>
 
-	<!-- Favicons-->
-	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-	<link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
-	<link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
-	<link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
-	<link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+<!-- Favicons-->
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" type="image/x-icon"
+	href="img/apple-touch-icon-57x57-precomposed.png">
+<link rel="apple-touch-icon" type="image/x-icon" sizes="72x72"
+	href="img/apple-touch-icon-72x72-precomposed.png">
+<link rel="apple-touch-icon" type="image/x-icon" sizes="114x114"
+	href="img/apple-touch-icon-114x114-precomposed.png">
+<link rel="apple-touch-icon" type="image/x-icon" sizes="144x144"
+	href="img/apple-touch-icon-144x144-precomposed.png">
 
-    <!-- GOOGLE WEB FONT -->
-    <link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Montserrat:300,400,700" rel="stylesheet">
-	
-	<!-- COMMON CSS -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-	<link href="css/vendors.css" rel="stylesheet">
-	
-	<!-- CSS -->
-	<link href="css/blog.css" rel="stylesheet">
-	
-	<!-- CUSTOM CSS -->
-	<link href="css/custom.css" rel="stylesheet">
+<!-- GOOGLE WEB FONT -->
+<link
+	href="https://fonts.googleapis.com/css?family=Gochi+Hand|Montserrat:300,400,700"
+	rel="stylesheet">
+
+<!-- COMMON CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href="css/vendors.css" rel="stylesheet">
+
+<!-- CSS -->
+<link href="css/blog.css" rel="stylesheet">
+
+<!-- CUSTOM CSS -->
+<link href="css/custom.css" rel="stylesheet">
 
 <!-- Handlebars -->
-<script  defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
+<script defer type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
 
 
 </head>
@@ -47,7 +55,9 @@
 	<!--======================== End Header======================== -->
 
 
-	<section class="parallax-window" data-parallax="scroll" data-image-src="img/notice_list.png" data-natural-width="1400" data-natural-height="470">
+	<section class="parallax-window" data-parallax="scroll"
+		data-image-src="img/notice_list.png" data-natural-width="1400"
+		data-natural-height="470">
 		<div class="parallax-content-1">
 			<div class="animated fadeInDown">
 				<h1>공지사항 글쓰기</h1>
@@ -61,18 +71,17 @@
 		<div id="position">
 			<div class="container">
 				<ul>
-				<li><i class="icon-home" onclick="location.href='index'"></i><a href="index"></a>
-				</li>
-				<li><a href="notice-list">공지사항</a>
-				</li>
-				<li>글쓰기</li>
+					<li><i class="icon-home" onclick="location.href='index'"></i><a
+						href="index"></a></li>
+					<li><a href="notice-list">공지사항</a></li>
+					<li>글쓰기</li>
 				</ul>
 			</div>
 		</div>
 		<!-- End position -->
 		<div class="container margin_60">
 			<div class="row">
-			
+
 				<div id="notice-write-detail" class="col-lg-9">
 					<div class="box_style_1">
 						<div class="post nopadding">
@@ -80,47 +89,50 @@
 								<div class="post-left">
 									<ul>
 										<li>
-										<h2>공지사항 글쓰기</h2>
+											<h2>공지사항 글쓰기</h2>
 										</li>
 									</ul>
 								</div>
 							</div>
-							<form id="noticewriteF" name="noticewriteF" class="was-validated" enctype="multipart/form-data">
+							<form id="noticewriteF" name="noticewriteF" class="was-validated"
+								enctype="multipart/form-data">
 								<input type="hidden" id="userId" th:value="${loginUser.userId}">
-							<div class="row">
-							<div class="col-md-12">
-								<div class="form-group">
-								<p></p>
-								
-									<label>공지사항 제목</label>
-									<input class="form-control" name="nTitle" id="nTitle" type="text" required="required">
-									<div class="invalid-feedback">공지사항 제목을 작성해주세요.</div>
-								</div>
-								<p></p>
-								<div class="form-group">
-									<label>공지사항 내용</label>
-									<textarea class="form-control" name="nContent" id="nContent" 
+								<div class="row">
+									<div class="col-md-12">
+										<div class="form-group">
+											<p></p>
+
+											<label>공지사항 제목</label> <input class="form-control"
+												name="nTitle" id="nTitle" type="text" required="required">
+											<div class="invalid-feedback">공지사항 제목을 작성해주세요.</div>
+										</div>
+										<p></p>
+										<div class="form-group">
+											<label>공지사항 내용</label>
+											<textarea class="form-control" name="nContent" id="nContent"
 												rows="10" cols="50" placeholder="" required="required"></textarea>
-									<div class="invalid-feedback">공지사항 내용을 작성해주세요.</div>
+											<div class="invalid-feedback">공지사항 내용을 작성해주세요.</div>
+										</div>
+									</div>
 								</div>
-							</div>
-							</div>
-						<p></p>
-						<p></p>
-						
-						<h4>파일 업로드</h4>
-						<div class="form-inline upload_1 notice-upload">
-							<div class="form-group">
-								<input type="file" id="imageFile" name="imageFile" multiple=""/>
-								<input type="hidden" id="nImg" th:value="${nImg}">
+								<p></p>
+								<p></p>
+
+								<h4>파일 업로드</h4>
+								<div class="form-inline upload_1 notice-upload">
+									<div class="form-group">
+										<input type="file" id="imageFile" name="imageFile" multiple="" />
+										<input type="hidden" id="nImg" th:value="${nImg}">
+									</div>
+								</div>
+							</form>
+							<div class="notice-write-btns">
+								<button type="submit" class="btn_1 green"
+									id="notice-write-action">작성 완료</button>
+								&nbsp;&nbsp;&nbsp;&nbsp; <a href="notice-list"
+									class="btn_1 green">취소</a>
 							</div>
 						</div>
-						</form>
-						<div class="notice-write-btns">
-							<button type="submit" class="btn_1 green" id="notice-write-action">작성 완료</button> &nbsp;&nbsp;&nbsp;&nbsp;
-							<a href="notice-list" class="btn_1 green">취소</a>
-						</div>
-					</div>
 						<!-- end post -->
 					</div>
 					<!-- end box_style_1 -->
@@ -130,33 +142,29 @@
 				</div>
 				<!-- End col-lg-9-->
 				<aside class="col-lg-3 add_bottom_30 notice-category">
-				
+
 					<div class="widget" id="cat_blog">
 						<h4>CLICK</h4>
 						<ul>
-							<li><a href="notice-list">목록으로 돌아가기</a>
-							</li>
+							<li><a href="notice-list">목록으로 돌아가기</a></li>
 						</ul>
 					</div>
 					<hr>
-				
+
 					<div class="widget tags">
 						<h4></h4>
-						<a href="tripboard-list">동행</a>
-						<a href="ticket-list">티켓</a>
-						<a href="tour-list">투어</a>
-						<a href="freeboard-list">자유게시판</a>
-						<a href="user-view">마이페이지</a>
+						<a href="tripboard-list">동행</a> <a href="ticket-list">티켓</a> <a
+							href="tour-list">투어</a> <a href="freeboard-list">자유게시판</a> <a
+							href="user-view">마이페이지</a>
 					</div>
 					<hr>
 					<!-- End widget -->
 					<br>
-										<div class="box_style_2">
-						<i class="icon_set_1_icon-57"></i>
-						<br>
+					<div class="box_style_2">
+						<i class="icon_set_1_icon-57"></i> <br>
 						<h6>도움이 필요하신가요?</h6>
-						<a href="tel://004542344599" class="phone">+82 423 445 99</a>
-						<small>월 ~ 금 9.00am - 7.30pm</small>
+						<a href="tel://004542344599" class="phone">+82 423 445 99</a> <small>월
+							~ 금 9.00am - 7.30pm</small>
 					</div>
 				</aside>
 			</div>
@@ -167,24 +175,29 @@
 	<!-- End main -->
 	<!--========================= footer ========================-->
 	<footer class="revealed">
-		<div id="footer" th:include="include-common-bottom::include-common-bottom"></div>
+		<div id="footer"
+			th:include="include-common-bottom::include-common-bottom"></div>
 	</footer>
-		<!-- End container -->
+	<!-- End container -->
 	<!--========================= End footer ========================-->
 
 
-	<div id="toTop"></div><!-- Back to top button -->
-	
+	<div id="toTop"></div>
+	<!-- Back to top button -->
+
 	<!-- Search Menu -->
 	<div class="search-overlay-menu">
-		<span class="search-overlay-close"><i class="icon_set_1_icon-77"></i></span>
+		<span class="search-overlay-close"><i
+			class="icon_set_1_icon-77"></i></span>
 		<form role="search" id="searchform" method="get">
 			<input value="" name="q" type="search" placeholder="Search..." />
-			<button type="submit"><i class="icon_set_1_icon-78"></i>
+			<button type="submit">
+				<i class="icon_set_1_icon-78"></i>
 			</button>
 		</form>
-	</div><!-- End Search Menu -->
-	
+	</div>
+	<!-- End Search Menu -->
+
 	<!-- ##################### template ###################### -->
 	<!-- <script> 태그에 코드 적으면 화면에 안 보임 -->
 	<!-- notice-detail-template -->
@@ -230,7 +243,7 @@
 </script>
 
 
-<!-- Functions 
+	<!-- Functions 
 <script>
 
 	function noticeCreate() {
@@ -256,7 +269,7 @@
 	<script src="js/common_scripts_min.js"></script>
 	<script src="js/functions.js"></script>
 	<script src="js/app.js" type="module"></script>
-	
+
 </body>
 
 </html>
