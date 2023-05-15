@@ -31,15 +31,6 @@ public class WebConfig implements WebMvcConfigurer{
                 .addResourceLocations("file:///C:/Temp/");
     }
 	
-	/*********************Spring MVC 빈객체등록*********************/
-	@Bean
-	public MultipartResolver multipartResolver() {
-	    CommonsMultipartResolver resolver = new CommonsMultipartResolver();
-	    resolver.setMaxUploadSizePerFile(5242880); // 파일당 최대 업로드 크기 설정
-	    return resolver;
-	}
-	
-	
 	/*********************Interceptor 등록*********************/
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
