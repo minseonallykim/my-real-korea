@@ -17,8 +17,16 @@
 * IDE : Spring Tool Suite 4(STS) - Gradle
 * API, 라이브러리 : Kakao Login / Daum주소 / Google Maps / PortOne, Thymeleaf, Handlebars, JQuery
 ## 주요 기능
-#### 소셜로그인, 회원가입 시 메일 인증
+#### 회원가입 & 로그인
+* 보안을 위해 회원가입 후 첫 로그인은 가입 시 입력한 이메일로 온 인증코드 입력 후 가능  
+
+![myrealkorea_login_email](https://github.com/minseonallykim/my-real-korea/assets/117511891/3c1f1e4e-c339-42ae-bf52-7257cb48848c)
+
 #### 투어/티켓 상품 예약
+* Port One API 사용하여 투어/티켓 상품 예약(결제) 구현  
+
+![myrealkorea_tour](https://github.com/minseonallykim/my-real-korea/assets/117511891/4b86d5a3-d096-4589-87c0-1bfaa6e8faea)
+
 #### 위시리스트  
 * 로그인 후 위시리스트에 투어/티켓 상품 추가
 
@@ -26,9 +34,16 @@
 
 * 
 
-#### 동행 찾기 게시판 1:1 채팅
+#### 1:1 실시간 채팅
+* 동행 찾기 게시판에서 게시글 작성자와 1:1 채팅 하기
+* 1:1 실시간 채팅  
+![myrealkorea_chat](https://github.com/minseonallykim/my-real-korea/assets/117511891/a02fc91d-b104-40d6-810e-5004cae9f0a1)
+
 #### 자유게시판
+* 자유롭게 게시글과 댓글로 소통이 가능한 자유게시판
 #### 공지사항
+* 이벤트, 할인 정보 등을 알리는 공지사항 게시판
+* 관리자만 공지사항 글쓰기/수정/삭제 가능
 ## ERD  
 ![myrealkorea erd](https://github.com/minseonallykim/my-real-korea/assets/117511891/58e20965-9303-4bfd-85d8-97babd9ce934)
 
