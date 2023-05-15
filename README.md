@@ -37,6 +37,7 @@
 #### 1:1 실시간 채팅
 * 동행 찾기 게시판에서 게시글 작성자와 1:1 채팅 하기
 * 1:1 실시간 채팅  
+
 ![myrealkorea_chat](https://github.com/minseonallykim/my-real-korea/assets/117511891/a02fc91d-b104-40d6-810e-5004cae9f0a1)
 
 #### 자유게시판
