@@ -23,8 +23,16 @@
 
 ![myrealkorea_login_email](https://github.com/minseonallykim/my-real-korea/assets/117511891/3c1f1e4e-c339-42ae-bf52-7257cb48848c)
 
-### 투어/티켓 상품 예약
-* Port One API 사용하여 투어/티켓 상품 예약(결제) 구현  
+* 마이페이지에서 회원 정보 수정, 내가 쓴 게시글/리뷰, 투어/티켓 예약 내역 보기 가능  
+
+![myrealkorea_mypage](https://github.com/minseonallykim/my-real-korea/assets/117511891/4c147dfa-de1e-4432-86c5-ea1c0a7d437e)  
+
+### 투어/티켓 상품
+* 투어/티켓 상품 정렬, 지역별 필터링, 키워드 검색 가능  
+
+![myrealkorea_tourticket](https://github.com/minseonallykim/my-real-korea/assets/117511891/18590e7c-0807-449a-bfd2-8dfc360cc51c)  
+
+* 투어/티켓 상품 예약
 
 ![myrealkorea_tour](https://github.com/minseonallykim/my-real-korea/assets/117511891/4b86d5a3-d096-4589-87c0-1bfaa6e8faea)
 
@@ -40,29 +48,31 @@
 ![myreallkorea_wishlistpage](https://github.com/minseonallykim/my-real-korea/assets/117511891/0534ba55-29d8-4d93-bd2e-20d12e6dc2b4)  
 
 ### 동행 찾기 게시판  
-* 국내 여행 동행을 찾는 게시판  
+* 국내 여행 동행을 찾는 게시판
+* 게시글, 댓글 CRUD 가능
+* 정렬, 지역별/모집 상태별 필터링, 키워드 검색 가능  
 
 ![myrealkorea_tripboard](https://github.com/minseonallykim/my-real-korea/assets/117511891/7f0385c7-2881-40e2-99b2-c734695a4f9a)  
 
 ### 1:1 실시간 채팅
-* 동행 찾기 게시판 상세보기에서 게시글 작성자와 1:1 채팅방 생성 가능
-* 1:1 실시간 채팅  
+* 동행 찾기 게시판 상세보기에서 게시글 작성자와 1:1 채팅방 생성
+* 1:1 실시간 채팅, 채팅방 클릭 시 대화 내용 불러오기 가능  
 
 ![myrealkorea_chat](https://github.com/minseonallykim/my-real-korea/assets/117511891/a02fc91d-b104-40d6-810e-5004cae9f0a1)
 
 ### 자유게시판
-* 자유롭게 게시글과 댓글로 소통이 가능한 자유게시판  
+* 자유롭게 게시글과 댓글로 소통이 가능한 자유게시판
+* 게시글, 댓글 CRUD / 정렬, 키워드 검색 가능  
 
 ![myrealkorea_freeboard](https://github.com/minseonallykim/my-real-korea/assets/117511891/b68ab1d8-d3cb-46a1-a0ee-ecd53f7aaa3e)
-
-
 
 ### 공지사항
 * 이벤트, 할인 정보 등을 알리는 공지사항 게시판  
 
 ![myrealkorea_notice](https://github.com/minseonallykim/my-real-korea/assets/117511891/395cd94a-7091-4888-8405-b8919d62856c)  
 
-* 관리자만 공지사항 글쓰기/수정/삭제 가능  
+* 관리자만 공지사항 글쓰기/수정/삭제 가능 
+* 공지사항 정렬, 키워드 검색 가능   
 
 ![myrealkorea_notice](https://github.com/minseonallykim/my-real-korea/assets/117511891/2bc3ac48-33f8-401f-b06f-f2518fc71130)  
 
