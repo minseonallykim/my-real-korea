@@ -5,11 +5,11 @@
 ![myrealkorea_main](https://github.com/minseonallykim/my-real-korea/assets/117511891/679096cd-dca4-4f43-9b07-a616253ced61)
 
 * Demo : [http://52.64.100.184:8080/my-real-korea](http://52.64.100.184:8080/my-real-korea)  
-  
-## 개발 목표
+
+## 📌 개발 목표
 국내 여행에 초점을 맞춘 여행 전문 사이트  
 여행 상품 판매 뿐 아니라 여행 관련 정보를 얻고, 동행 찾기가 가능한 여행 전문 웹사이트 구현  
-## 사용 기술
+## 📌  사용 기술
 * 언어 : Java, HTML/CSS, JavaScript
 * 서버 : Apache Tomcat 9.0.73
 * 프레임워크 : Spring Boot, MyBatis 2.3.0, Bootstrap4
@@ -17,7 +17,7 @@
 * IDE : Spring Tool Suite 4(STS) - Gradle
 * API, 라이브러리 : Kakao Login / Daum주소 / Google Maps / PortOne, Thymeleaf, Handlebars, JQuery
 * ETC : AWS EC2
-## 주요 기능
+## 📌  주요 기능
 ### 회원가입 & 로그인
 * 보안을 위해 회원가입 후 첫 로그인은 가입 시 입력한 이메일로 온 인증코드 입력 후 가능  
 
@@ -76,6 +76,6 @@
 
 ![myrealkorea_notice](https://github.com/minseonallykim/my-real-korea/assets/117511891/2bc3ac48-33f8-401f-b06f-f2518fc71130)  
 
-## ERD  
+## 📌  ERD  
 ![myrealkorea erd](https://github.com/minseonallykim/my-real-korea/assets/117511891/58e20965-9303-4bfd-85d8-97babd9ce934)
 
