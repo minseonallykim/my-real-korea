@@ -16,6 +16,7 @@
 * DB : Oracle
 * IDE : Spring Tool Suite 4(STS) - Gradle
 * API, 라이브러리 : Kakao Login / Daum주소 / Google Maps / PortOne, Thymeleaf, Handlebars, JQuery
+* ETC : AWS EC2
 ## 주요 기능
 ### 회원가입 & 로그인
 * 보안을 위해 회원가입 후 첫 로그인은 가입 시 입력한 이메일로 온 인증코드 입력 후 가능  
