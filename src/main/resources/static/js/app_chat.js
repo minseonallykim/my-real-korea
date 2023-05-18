@@ -1,4 +1,3 @@
-import * as View from "./view.js";
 import * as Request from "./request.js";
 
 let sock;
@@ -29,7 +28,7 @@ function onOpen(evt) {
 
 /**********페이지 로딩 시 - 소켓연결, DB내용 가져오기*********/
 $(document).ready(function() {
-	sock = new WebSocket("ws://localhost:80/final-project-team2-my-real-korea/ws/chat");
+	sock = new WebSocket("ws://52.64.100.184:8080/my-real-korea/ws/chat");
 	sock.onmessage = onMessage;
 	sock.onopen = onOpen;
 	sock.onClose = onClose;
@@ -264,7 +263,7 @@ $(document).on('click', '#chat-room-list', function(e) {
 	receiverIdFromRoom = clickChatRoomName.substr(clickChatRoomName.indexOf("&") + 1);
 	senderIdFromRoom = clickChatRoomName.substring(0, clickChatRoomName.indexOf('&'));
 	console.log('채팅방클릭-receiverIdFromRoom:' + receiverIdFromRoom);
-	//window.location.href='chat?receiverId='+receiverIdFromRoom;
+	
 	scrollDown();
 	document.getElementById('chat-content').innerHTML = "";
 	getChatFromDB(clickChatRoomName, myId, receiverIdFromRoom);
@@ -276,50 +275,4 @@ function changeRoomName(chatRoomName) {
 	let roomNamediv = document.querySelector('#roomName');
 	roomNamediv.textContent = chatRoomName;
 };
-
-
-/**************채팅 아이디 가져오기****************/
-
-function getUserId() {
-	let url = 'get-chat-id';
-	let method = 'GET';
-	let contentType = 'application/json;charset=UTF-8';
-	let sendData = {};
-	let async = true;
-	let userId = null;
-	Request.ajaxRequest(url, method, contentType,
-		sendData,
-		function(resultJson) {
-			if (resultJson.code == 1) {
-				userId = resultJson.userId;
-				console.log("채팅아이디 :" + userId);
-			} else {
-				alert(resultJson.msg);
-			};
-		}, async);
-	return userId;
-}
-
-/**************안읽은 채팅 수 가져오기***************/
-function getChatNum(userId) {
-	let roomNo = '1';
-	let url = `count-not-read-chat?userId=${userId}&roomNo=${roomNo}`;
-	let method = 'GET';
-	let contentType = 'application/json;charset=UTF-8';
-	let sendData = {};
-	let async = true;
-	Request.ajaxRequest(url, method, contentType,
-		sendData,
-		function(resultJson) {
-			//code 1 , 안읽은 채팅이 있을 때
-			if (resultJson.code == 1 && resultJson.data != 0) {
-				console.log('안읽은채팅 있음');
-				// 안읽은 채팅이 0 일 때	
-			} else if (resultJson.code == 1 && resultJson.data == 0) {
-				console.log('안읽은채팅 없음');
-			} else {
-				alert(resultJson.msg);
-			};
-		}, async);
-}
 

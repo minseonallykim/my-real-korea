@@ -35,17 +35,14 @@ public class ChatController {
 
 		HttpSession session = request.getSession();
 		User loginUser = (User) session.getAttribute("loginUser");
-
 		String userId = loginUser.getUserId();
 		String senderId = userId;
 		String roomName = "";
-		/*
-		 * receiverId는 채팅 시작 클릭버튼에 hidden으로 해당 프로필유저의 아이디걸어놓은거 가져오기
-		 */
-		if (session != null) {
-			String name = session.toString().substring(session.toString().indexOf("@"));
-			session.setAttribute("sessionId", name);
-		}
+		// receiverId는 채팅 시작 클릭버튼에 hidden으로 해당 프로필유저의 아이디 걸어놓은거 가져오기
+//		if (session != null) {
+//			String name = session.toString().substring(session.toString().indexOf("@"));
+//			session.setAttribute("sessionId", name);
+//		}
 		// 채팅방 이름 생성
 		roomName = senderId + "&" + receiverId;
 

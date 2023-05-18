@@ -42,32 +42,6 @@ public class ChatRestController {
 	@Autowired
 	private ChatService chatService;
 
-	// 채팅 아이디 가져오기
-	@GetMapping(value = "/get-chat-id")
-	public Map<String, Object> returnSessionCheck(HttpSession session) {
-		Map<String, Object> resultMap = new HashMap<>();
-		int code = 1;
-		String msg = "";
-		String userId = "";
-		User loginUser = (User) session.getAttribute("loginUser");
-		try {
-			if (loginUser != null) {
-				userId = loginUser.getUserId();
-			}
-			code = 1;
-			msg = "성공";
-		} catch (Exception e) {
-			code = 2;
-			msg = "채팅아이디 가져오기 실패";
-			e.printStackTrace();
-		}
-		resultMap.put("code", code);
-		resultMap.put("msg", msg);
-		resultMap.put("userId", userId);
-
-		return resultMap;
-	}
-
 	// 채팅 내용 불러오기
 	@PostMapping(value = "/chat-detail-rest")
 	public Map<String, Object> chatDetailRest(@RequestBody Map<String, String> chatList) throws Exception {
@@ -112,30 +86,6 @@ public class ChatRestController {
 
 		return resultMap;
 	}
-
-	// 안 읽은 채팅 수
-	@GetMapping(value = "/count-not-read-chat")
-	public Map<String, Object> countNotReadChat(@RequestParam String userId, @RequestParam int roomNo) {
-		Map<String, Object> resultMap = new HashMap<>();
-		int code = 1;
-		String msg = "성공";
-		int data = 0;
-		try {
-			data = chatService.countNotReadInChatRoom(roomNo, userId);
-			code = 1;
-			msg = "성공";
-		} catch (Exception e) {
-			code = 2;
-			msg = "안읽은 채팅 수 불러오기 실패";
-			e.printStackTrace();
-		}
-		resultMap.put("code", code);
-		resultMap.put("msg", msg);
-		resultMap.put("data", data);
-
-		return resultMap;
-	}
-
 	// 메세지 보내기 & DB저장
 	@PostMapping(value = "/save-chat")
 	public Map<String, Object> saveChat(@RequestBody Map<String, String> messages) {
@@ -442,6 +392,29 @@ public class ChatRestController {
 		resultMap.put("code", code);
 		resultMap.put("msg", msg);
 		resultMap.put("data", data);
+		return resultMap;
+	}
+
+	// 안 읽은 채팅 수
+	@GetMapping(value = "/count-not-read-chat")
+	public Map<String, Object> countNotReadChat(@RequestParam String userId, @RequestParam int roomNo) {
+		Map<String, Object> resultMap = new HashMap<>();
+		int code = 1;
+		String msg = "성공";
+		int data = 0;
+		try {
+			data = chatService.countNotReadInChatRoom(roomNo, userId);
+			code = 1;
+			msg = "성공";
+		} catch (Exception e) {
+			code = 2;
+			msg = "안읽은 채팅 수 불러오기 실패";
+			e.printStackTrace();
+		}
+		resultMap.put("code", code);
+		resultMap.put("msg", msg);
+		resultMap.put("data", data);
+
 		return resultMap;
 	}
 

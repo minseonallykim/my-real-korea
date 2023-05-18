@@ -25,9 +25,6 @@ import com.itwill.my_real_korea.dto.chat.ChatMsg;
 
 import lombok.extern.log4j.Log4j2;
 
-//@Log4j2
-//@Component
-//@ServerEndpoint(value="/ws/chat")
 public class WebSocketChat {
 	
 	private static Set<Session> clients = Collections.synchronizedSet(new HashSet<Session>());

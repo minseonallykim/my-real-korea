@@ -67,7 +67,6 @@ public class ChatHandler extends TextWebSocketHandler {
 		Map<String, Object> data = new HashMap<>();
 		data.put("senderId", senderId);
 		data.put("message", senderId + " 님이 접속했습니다.");
-		// data.put("receiverId", receiverId);
 		data.put("newOne", senderId);
 
 		log.info("afterConnectionEstablished final data >>> " + data);
@@ -91,13 +90,6 @@ public class ChatHandler extends TextWebSocketHandler {
 	public void handleTextMessage(WebSocketSession session, TextMessage message) {
 		Map<String, Object> dataMap = new HashMap<>();
 
-		// 마스터 상태
-		String masterStatus = null;
-		if (userSession.containsKey("master")) {
-			masterStatus = "online";
-		} else {
-			masterStatus = "offline";
-		}
 		// 보내는 시간
 		LocalDateTime currentTime = LocalDateTime.now();
 		String time = currentTime.format(DateTimeFormatter.ofPattern("hh:mm a E"));
@@ -131,7 +123,6 @@ public class ChatHandler extends TextWebSocketHandler {
 		dataMap.put("senderId", senderId);
 		dataMap.put("receiverId", receiverId);
 		dataMap.put("time", time);
-		dataMap.put("masterStatus", masterStatus);
 		dataMap.put("onlineList", onlineList);
 
 		log.info("handleTextMessage final dataMap >>> " + dataMap);
@@ -146,7 +137,6 @@ public class ChatHandler extends TextWebSocketHandler {
 			}
 			// 내아이디와 상대아이디 다를 때 세션에 메세지 보내기
 			if (!senderId.equals(receiverId)) {
-				// dataMap.put("receiverId", senderId);
 				msg = json.writeValueAsString(dataMap);
 				session.sendMessage(new TextMessage(msg));
 			}
@@ -162,8 +152,6 @@ public class ChatHandler extends TextWebSocketHandler {
 	public void afterConnectionClosed(WebSocketSession session, CloseStatus status) {
 		User loginUser = (User) session.getAttributes().get("loginUser");
 		String senderId = loginUser.getUserId();
-		// 받는 사람
-		String receiverId = "";
 		// 저장되었던 세션 관련 정보 삭제
 		sessionList.remove(session);
 		onlineList.remove(senderId);
@@ -187,14 +175,6 @@ public class ChatHandler extends TextWebSocketHandler {
 	public void sendToAll(TextMessage message, String senderId) throws Exception {
 		// json test
 		Map<String, Object> dataMap = new HashMap<>();
-
-		// 마스터 상태
-		String masterStatus = null;
-		if (userSession.containsKey("master")) {
-			masterStatus = "online";
-		} else {
-			masterStatus = "offline";
-		}
 		// 보내는 시간
 		LocalDateTime currentTime = LocalDateTime.now();
 		String time = currentTime.format(DateTimeFormatter.ofPattern("hh:mm a E"));
@@ -220,7 +200,6 @@ public class ChatHandler extends TextWebSocketHandler {
 		dataMap.put("senderId", senderId);
 		dataMap.put("receiverId", receiverId);
 		dataMap.put("time", time);
-		dataMap.put("masterStatus", masterStatus);
 		dataMap.put("onlineList", onlineList); // user online status
 		dataMap.put("newOne", senderId);
 
@@ -229,7 +208,6 @@ public class ChatHandler extends TextWebSocketHandler {
 
 		// 세션맵에 들어있는 사람들에게 메세지 보내기
 		for (String r : userSession.keySet()) {
-			// dataMap.put("receiverId", r);
 			String msg = json.writeValueAsString(dataMap);
 			userSession.get(r).sendMessage(new TextMessage(msg));
 		}
@@ -238,7 +216,6 @@ public class ChatHandler extends TextWebSocketHandler {
 	// 현재 세션에 있는 사람들 리스트
 	public void sendOnlineList(WebSocketSession session) throws IOException {
 		Map<String, Object> map = new HashMap<>();
-
 		map.put("onlineList", onlineList);
 		String list = json.writeValueAsString(map);
 

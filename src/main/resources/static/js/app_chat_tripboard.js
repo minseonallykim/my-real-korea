@@ -1,6 +1,3 @@
-import * as View from "./view.js";
-import * as Request from "./request.js";
-
 /***************동행게시판에서 채팅방 팝업 열기******************/
 $(document).on('click','#chat-pop-up-click', function(e) {
 	let receiverId = $('#chat-tripboard-userId').val();
