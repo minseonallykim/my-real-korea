@@ -30,19 +30,14 @@ public class ChatController {
 	@LoginCheck
 	@GetMapping("/chat")
 	public String getChat(HttpServletRequest request, Model model,
-			@RequestParam(required = true, value = "receiverId") String receiverId,
-			@RequestParam(required = false, value = "chatRoomName") String chatRoomName) {
+							@RequestParam(required = true, value = "receiverId") String receiverId,
+							@RequestParam(required = false, value = "chatRoomName") String chatRoomName) {
 
 		HttpSession session = request.getSession();
 		User loginUser = (User) session.getAttribute("loginUser");
 		String userId = loginUser.getUserId();
 		String senderId = userId;
 		String roomName = "";
-		// receiverId는 채팅 시작 클릭버튼에 hidden으로 해당 프로필유저의 아이디 걸어놓은거 가져오기
-//		if (session != null) {
-//			String name = session.toString().substring(session.toString().indexOf("@"));
-//			session.setAttribute("sessionId", name);
-//		}
 		// 채팅방 이름 생성
 		roomName = senderId + "&" + receiverId;
 
@@ -108,13 +103,6 @@ public class ChatController {
 
 		log.info("@ChatController, getChat()");
 		return "chat";
-	}
-
-	@GetMapping("/chat/master")
-	public String enterChatAsMaster(HttpServletRequest request) {
-
-		log.info("@ChatController, enterChatAsMaster()");
-		return "/chat";
 	}
 
 }

@@ -259,10 +259,14 @@ function scrollDown() {
 $(document).on('click', '#chat-room-list', function(e) {
 	// DB에 저장된 대화내용 가져오기
 	clickChatRoomName = $(this).find('#master').text();
-	console.log('채팅방클릭-clickChatRoomName:' + clickChatRoomName);
+	// 채팅수신 아이디 설정
 	receiverIdFromRoom = clickChatRoomName.substr(clickChatRoomName.indexOf("&") + 1);
+	// 채팅 발신 아이디 설정
 	senderIdFromRoom = clickChatRoomName.substring(0, clickChatRoomName.indexOf('&'));
+	
+	console.log('채팅방클릭-clickChatRoomName:' + clickChatRoomName);
 	console.log('채팅방클릭-receiverIdFromRoom:' + receiverIdFromRoom);
+	console.log('채팅방클릭-senderIdFromRoom:' + senderIdFromRoom);
 	
 	scrollDown();
 	document.getElementById('chat-content').innerHTML = "";
