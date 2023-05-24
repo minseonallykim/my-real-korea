@@ -24,12 +24,10 @@ public class AuthAdminAnnotationInterceptor implements HandlerInterceptor {
 	public boolean preHandle(	HttpServletRequest request, 
 								HttpServletResponse response, 
 								Object handler) throws Exception {
-		
 		// HandlerMethod : @Controller 객체에 @RequestMapping이 붙은 메소드
 		if (handler instanceof HandlerMethod == false) {
 			return true;
 		}
-		
 		HandlerMethod handlerMethod = (HandlerMethod) handler;
 		
 		// HandlerMethod 객체에 @AdminCheck 이 없는 경우, 인증이 필요 없는 요청
@@ -37,7 +35,6 @@ public class AuthAdminAnnotationInterceptor implements HandlerInterceptor {
 		if (adminCheck == null) {
 			return true;
 		}
-		
 		// HandlerMethod 객체에 @AdminCheck 이 있는 경우, 세션이 있는지 체크
 		HttpSession session = request.getSession();
 		User loginUser = (User) session.getAttribute("loginUser");
@@ -57,7 +54,6 @@ public class AuthAdminAnnotationInterceptor implements HandlerInterceptor {
 			}
 			return false;
 		} 
-
 		// true : 컨트롤러의 uri로 이동
 		return true;
 	}

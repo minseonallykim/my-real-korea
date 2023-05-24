@@ -44,13 +44,9 @@ public class ChatHandler extends TextWebSocketHandler {
 	private static List<WebSocketSession> sessionList = new ArrayList<>();
 	// 전체 채팅방에 접속한 모든 사용자들의 세션 정보
 	public static Map<String, WebSocketSession> userSession = new HashMap<>();
-
 	// ObjectMapper : JSON 데이터를 java객체로, java객체를 JSON데이터로 변환
 	@Autowired
 	ObjectMapper json = new ObjectMapper();
-	@Autowired
-	private ChatService chatService;
-
 	// 클라이언트 접속 성공 : 세션 생성, 관리
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session) {
