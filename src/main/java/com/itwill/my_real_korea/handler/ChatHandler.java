@@ -48,6 +48,8 @@ public class ChatHandler extends TextWebSocketHandler {
 	@Autowired
 	ObjectMapper json = new ObjectMapper();
 	// 클라이언트 접속 성공 : 세션 생성, 관리
+	
+	// websocket에 session이 접속했을 때, 처리하는 메소드
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session) {
 		// 보내는 사람 아이디(세션아이디) : 세션 리스트에 저장
@@ -80,6 +82,7 @@ public class ChatHandler extends TextWebSocketHandler {
 		log.info(session + " 세션접속 성공");
 	}
 
+	// websocket을 통해서 받은 메세지를 처리하는 메소드
 	// 클라이언트로부터 메세지 수신 : 로그 출력, 메세지 클라이언트에게 전송 (payload : 전송되는 데이터)
 	@Override
 	public void handleTextMessage(WebSocketSession session, TextMessage message) {
@@ -141,6 +144,7 @@ public class ChatHandler extends TextWebSocketHandler {
 		}
 	}
 
+	// websocket에 session이 접속을 해제 했을 때, 처리하는 메소드
 	// 클라이언트 연결 종료 : 세션 해제, 관련 정보 삭제
 	@Override
 	public void afterConnectionClosed(WebSocketSession session, CloseStatus status) {
