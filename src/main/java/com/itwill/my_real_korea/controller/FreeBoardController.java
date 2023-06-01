@@ -206,7 +206,6 @@ public class FreeBoardController {
         return "redirect:/freeboard-detail";
     }
 
-    //    @LoginCheck
     @GetMapping("/freeboard-modify-form")
     public String freeBoardModifyForm(@RequestParam Integer fBoNo, HttpSession session, Model model) throws Exception {
 
@@ -224,7 +223,6 @@ public class FreeBoardController {
         }
         return "freeboard-modify-form";
     }
-
 
     @LoginCheck
     @PostMapping("/freeboard-delete-action")
