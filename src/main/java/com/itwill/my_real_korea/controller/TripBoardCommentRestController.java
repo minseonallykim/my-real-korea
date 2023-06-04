@@ -103,9 +103,9 @@ public class TripBoardCommentRestController {
 
 		return resultMap;
 	}
-	
-	//동행게시판 댓글 수정폼
-	
+
+	// 동행게시판 댓글 수정폼
+
 	@ApiOperation(value = "동행게시판 댓글 수정폼")
 	@ApiImplicitParam(name = "tCoNo", value = "동행게시판 댓글 번호")
 	@GetMapping(value = "tripboardcomment/{tCoNo}", produces = "application/json;charset=UTF-8")

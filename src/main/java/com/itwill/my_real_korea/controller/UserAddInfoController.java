@@ -22,10 +22,6 @@ public class UserAddInfoController {
 		userAddInfoService.updateUserAddInfo(userAddInfo);
 		return "redirect:user-view";
 	}
-	
-	
-	
-
 }
 
 

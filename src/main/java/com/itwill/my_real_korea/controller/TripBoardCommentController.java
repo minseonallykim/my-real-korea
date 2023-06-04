@@ -32,22 +32,4 @@ public class TripBoardCommentController {
 		}
 		return "redirect:tripboard-detail";
 	}
-	
-	/*
-	 * 댓글리스트
-	 *
-	@GetMapping(value = "/tripboard-detail")
-	public String tripBoardComment_list(@RequestParam int tBoNo, Model model) {
-		try {
-			List<TripBoardComment> tripBoardCommentList = tripBoardCommentService.selectAllByTBoNo(tBoNo);
-			model.addAttribute("tripBoardCommentList", tripBoardCommentList);
-			model.addAttribute("tBoNo", tBoNo);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return "error";
-		}
-		return "tripboard-detail";
-	}
-	*/
-	
 }
