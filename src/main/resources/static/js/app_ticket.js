@@ -79,63 +79,6 @@ $(document).on('hidden.bs.modal','#myReview',function(){
     $("#tiReviewContent").val("");
 });
 
-/* 리뷰 Action 
-
-$('#ticket-review-action').click(function(e){
-	  let sendData={
-					tiNo:$('#hiddenTiNo').val(), // 임의
-					tiReviewTitle:document.ticketReview.tiReviewTitle.value,
-					tiReviewStar:document.ticketReview.tiReviewStar.value,
-					tiReviewContent:document.ticketReview.tiReviewContent.value,
-					tiReviewImg:document.ticketReview.tiReviewImg.value, // 임의
-					userId:document.ticketReview.userId.value
-					};
-					//console.log($('#hiddenTiNo').val());
-					console.log(document.ticketReview.tiReviewImg.value);
-		url,mehtod,contentType,sendData,callbakc,async
-	    Request.ajaxRequest('ticket-review-action',
-	    					'POST',
-	    					'application/json;charset=UTF-8',
-		       				 JSON.stringify(sendData),
-		       				 function(resultJson){
-							 let tiNo = $('#hiddenTiNo').val();
-		           		 		if(resultJson.code==1){
-									window.location.href=`ticket-detail?tiNo=${tiNo}`;
-		          			  } else{
-		               				 alert(resultJson.msg);
-		            }
-		            }
-		            ,true);
-        e.preventDefault();
-});
-
-
-
-파일업로드
-
-	//1. 리뷰 전송
-    $('#ticket-review-action').on('click', uploadImage);
-
-    function uploadImage() { //
-        let file = $('#tiReviewImg')[0].files[0]; //새파일 upload확인
-        let formData = new FormData();
-        formData.append('tiReviewImg', file);
-
-        $.ajax({
-            type: 'POST', // awsController 
-            url: '/api/v1/upload',
-            data: formData,
-            processData: false,
-            contentType: false
-        }).done(function (data) {
-            $('#result-image').attr("src", data);
-        }).fail(function (error) {
-            alert(error);
-        })
-    }	
-
-*/
-
 /***** 티켓 리뷰 작성 *****/
 
 $('#ticket-review-action').click(function(e){
