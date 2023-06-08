@@ -20,7 +20,7 @@ class ChatRoomDaoImplTest {
 
 	@Autowired
 	private ChatRoomDao chatRoomDao;
-	
+
 	@Disabled
 	@Test
 	void testSelectAll() {
@@ -34,8 +34,7 @@ class ChatRoomDaoImplTest {
 		assertNotNull(chatRoomDao.selectByRoomName("채팅"));
 		System.out.println(chatRoomDao.selectByRoomName("채팅"));
 	}
-	
-	
+
 	@Test
 	void testSelectCheckByRoomNameWith() {
 		assertNotNull(chatRoomDao.selectByRoomNameWith("채팅"));

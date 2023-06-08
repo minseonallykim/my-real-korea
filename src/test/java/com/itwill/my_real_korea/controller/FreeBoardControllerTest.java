@@ -36,7 +36,6 @@ public class FreeBoardControllerTest {
     @MockBean
     FreeBoardCommentService freeBoardCommentService;
 
-
     //@Test
     void freeBoard_list() throws Exception{
         PageMakerDto<FreeBoard> freeBoardList = new PageMakerDto<>();

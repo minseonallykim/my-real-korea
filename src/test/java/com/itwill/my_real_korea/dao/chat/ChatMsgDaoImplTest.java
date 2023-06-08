@@ -18,28 +18,28 @@ class ChatMsgDaoImplTest {
 
 	@Autowired
 	private ChatMsgDao chatMsgDao;
-	
+
 	@Disabled
 	@Test
 	void testSelectByRoomNo() {
-		assertNotNull(chatMsgDao.selectChatByRoomName("채팅")); 
+		assertNotNull(chatMsgDao.selectChatByRoomName("채팅"));
 		System.out.println(chatMsgDao.selectChatByRoomName("채팅"));
 	}
 
 	@Disabled
 	@Test
 	void testSelectByMsgNo() {
-		assertNotNull(chatMsgDao.selectByMsgNo(2)); 
+		assertNotNull(chatMsgDao.selectByMsgNo(2));
 		System.out.println(chatMsgDao.selectByMsgNo(2));
 	}
-	
+
 	@Disabled
 	@Test
 	void testSelectNotReadMsg() {
-		assertNotNull(chatMsgDao.selectNotReadMsg(1, "kms1")); 
+		assertNotNull(chatMsgDao.selectNotReadMsg(1, "kms1"));
 		System.out.println(chatMsgDao.selectNotReadMsg(1, "kms1"));
 	}
-	
+
 	@Disabled
 	@Test
 	void testCountNotReadMsg() {
@@ -47,14 +47,13 @@ class ChatMsgDaoImplTest {
 		assertNotEquals(rowCount, 0);
 		System.out.println(chatMsgDao.countNotReadMsg(1, "kms1"));
 	}
-	
-	
+
 	@Test
 	void testSelectAllNotReadMsg() {
 		assertNotNull(chatMsgDao.selectAllNotReadMsg("kms2"));
 		System.out.println(chatMsgDao.selectAllNotReadMsg("kms2"));
 	}
-	
+
 	@Disabled
 	@Test
 	void testCountAllNotReadMsg() {
@@ -62,28 +61,28 @@ class ChatMsgDaoImplTest {
 		assertNotEquals(rowCount, 0);
 		System.out.println(chatMsgDao.countAllNotReadMsg("kms1"));
 	}
-	
+
 	@Disabled
 	@Test
 	void testUpdateReadMsg() {
 		int rowCount = chatMsgDao.updateReadMsg(1, "kms1");
 		assertNotEquals(rowCount, 0);
 	}
-	
+
 	@Disabled
 	@Test
 	void testDeleteChatMsg() {
 		int rowCount = chatMsgDao.deleteChatMsg(3);
 		assertNotEquals(rowCount, 0);
 	}
-	
+
 	@Disabled
 	@Test
 	void testUpdateDeletedMsg() {
 		int rowCount = chatMsgDao.updateDeletedMsg(2);
 		assertNotEquals(rowCount, 0);
 	}
-	
+
 	@Disabled
 	@Test
 	void testInsertChatMsg() {
