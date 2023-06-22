@@ -28,7 +28,7 @@ function onOpen(evt) {
 
 /**********페이지 로딩 시 - 소켓연결, DB내용 가져오기*********/
 $(document).ready(function() {
-	sock = new WebSocket("ws://52.64.100.184:8080/my-real-korea/ws/chat");
+	sock = new WebSocket("ws://localhost:8080/my-real-korea/ws/chat");
 	sock.onmessage = onMessage;
 	sock.onopen = onOpen;
 	sock.onClose = onClose;
